@@ -4,45 +4,86 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fab3DCréation — Boutique</title>
+
+  <!-- SEO de base -->
   <meta name="description" content="Boutique officielle Fab3DCréation : figurines, lithophanies et objets 3D personnalisés imprimés en France." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://fab3dcreation.example/" />
-  <meta name="google-site-verification" content="PASTE_SEARCH_CONSOLE_CODE_HERE" />
+  <link rel="canonical" href="https://fab3dcreation-site.netlify.app/" />
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://fab3dcreation.example/" />
+  <meta property="og:url" content="https://fab3dcreation-site.netlify.app/" />
   <meta property="og:title" content="Fab3DCréation — Boutique 3D, figurines & objets personnalisés" />
   <meta property="og:description" content="Créations 3D originales imprimées en France : figurines, lithophanies, cadeaux personnalisés. Paiement sécurisé." />
-  <meta property="og:image" content="https://fab3dcreation.example/og-cover.jpg" />
+  <meta property="og:image" content="https://fab3dcreation-site.netlify.app/Banniere.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Fab3DCréation — Boutique 3D" />
   <meta name="twitter:description" content="Figurines & objets 3D personnalisés imprimés en France." />
-  <meta name="twitter:image" content="https://fab3dcreation.example/og-cover.jpg" />
+  <meta name="twitter:image" content="https://fab3dcreation-site.netlify.app/Banniere.jpg" />
+
   <style>
     :root { --bg:#0b0c10; --muted:#8a90a2; --text:#e8ecf1; --accent:#6ee7b7; --accent-2:#60a5fa; --radius:18px; }
-    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#0a0b0e,#0b0c10 40%);color:var(--text)}
-    a{color:inherit;text-decoration:none}.container{max-width:1100px;margin:0 auto;padding:24px}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#0a0b0e,#0b0c10 40%);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+
     header{position:sticky;top:0;z-index:50;background:rgba(10,11,14,.6);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}.brand{display:flex;gap:12px;align-items:center}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
     .logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
     .brand h1{font-size:18px;margin:0;font-weight:700;letter-spacing:.3px}
+
     .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:var(--text);font-weight:600;cursor:pointer}
     .btn-accent{background:linear-gradient(135deg,var(--accent),var(--accent-2));border:none;color:#0a0b0e}
+
     .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:26px 0}
     .card{background:linear-gradient(180deg,#0f1116,#0c0d11);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden}
-    .copy{padding:28px} h2{margin:0 0 8px;font-size:36px;line-height:1.1}.sub{color:var(--muted);font-size:16px}
-    .badges{display:flex;gap:10px;margin:16px 0 22px}.badge{font-size:12px;color:#0a0b0e;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:8px 10px;border-radius:999px}
-    .mock{aspect-ratio:4/3;border-radius:var(--radius);background:radial-gradient(1200px 400px at 30% -10%,rgba(96,165,250,.35),transparent 60%), radial-gradient(800px 300px at 90% 120%,rgba(110,231,183,.25),transparent 55%), #0b0c10;display:grid;place-items:center;border:1px dashed rgba(255,255,255,.08)} .mock p{color:var(--muted)}
-    .section{margin:26px 0}.section h3{font-size:22px;margin:0 0 10px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .thumb{aspect-ratio:4/3;background:#0b0c10 url('https://picsum.photos/seed/fab3d/800/600') center/cover no-repeat}.content{padding:16px}
-    .title{font-size:18px;font-weight:700;margin:0 0 6px}.desc{color:var(--muted);font-size:14px;min-height:40px}
-    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:12px}.price{font-weight:800;font-size:18px}
-    .reviews{border-top:1px solid rgba(255,255,255,.06);margin-top:10px;padding:12px}.reviews h4{margin:0 0 8px;font-size:14px;color:var(--muted);font-weight:700;letter-spacing:.2px}
-    .review{display:grid;grid-template-columns:auto 1fr;gap:10px;margin:8px 0;padding:8px;border:1px solid rgba(255,255,255,.06);border-radius:12px}.stars-txt{font-size:14px}
-    .photos-grid{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.photos-grid img{width:70px;height:70px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
-    @media (max-width: 960px){ .hero{grid-template-columns:1fr} .grid{grid-template-columns:1fr 1fr} } @media (max-width: 640px){ .grid{grid-template-columns:1fr} h2{font-size:30px} }
+    .copy{padding:28px}
+    h2{margin:0 0 8px;font-size:36px;line-height:1.1}
+    .sub{color:var(--muted);font-size:16px}
+    .badges{display:flex;gap:10px;margin:16px 0 22px}
+    .badge{font-size:12px;color:#0a0b0e;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:8px 10px;border-radius:999px}
+
+    /* >>> BANNIÈRE */
+    .hero-banner{width:100%;max-height:360px;aspect-ratio: 16/5;object-fit:cover;display:block}
+    /* <<< BANNIÈRE */
+
+    .section{margin:26px 0}
+    .section h3{font-size:22px;margin:0 0 10px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .thumb{aspect-ratio:4/3;background:#0b0c10 url('https://picsum.photos/seed/fab3d/800/600') center/cover no-repeat}
+    .content{padding:16px}
+    .title{font-size:18px;font-weight:700;margin:0 0 6px}
+    .desc{color:var(--muted);font-size:14px;min-height:40px}
+    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+    .price{font-weight:800;font-size:18px}
+
+    .reviews{border-top:1px solid rgba(255,255,255,.06);margin-top:10px;padding:12px}
+    .reviews h4{margin:0 0 8px;font-size:14px;color:var(--muted);font-weight:700;letter-spacing:.2px}
+    .review{display:grid;grid-template-columns:auto 1fr;gap:10px;margin:8px 0;padding:8px;border:1px solid rgba(255,255,255,.06);border-radius:12px}
+    .stars-txt{font-size:14px}
+    .photos-grid{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+    .photos-grid img{width:70px;height:70px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .hero-banner{max-height:280px}
+    }
+    @media (max-width: 640px){
+      .grid{grid-template-columns:1fr}
+      h2{font-size:30px}
+      .hero-banner{max-height:220px}
+    }
+
     dialog{border:none;border-radius:14px;padding:0;max-width:520px;width:calc(100% - 24px);background:#0f1116;color:var(--text)}
-    dialog::backdrop{background:rgba(0,0,0,.6)} .dialog-body{padding:18px;border-bottom:1px solid rgba(255,255,255,.06)} .dialog-actions{display:flex;gap:10px;justify-content:flex-end;padding:14px}
-    .payrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px} .paybtn{flex:1;min-width:150px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);font-weight:700;cursor:pointer;background:#10131a;color:var(--text)} .paybtn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0b0e;border:none}
+    dialog::backdrop{background:rgba(0,0,0,.6)}
+    .dialog-body{padding:18px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .dialog-actions{display:flex;gap:10px;justify-content:flex-end;padding:14px}
+    .payrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .paybtn{flex:1;min-width:150px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);font-weight:700;cursor:pointer;background:#10131a;color:var(--text)}
+    .paybtn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0a0b0e;border:none}
     .small{font-size:12px;color:var(--muted)}
   </style>
 </head>
@@ -52,7 +93,10 @@
       <div class="brand">
         <div class="logo" aria-hidden="true"></div><h1>Fab3DCréation</h1>
       </div>
-      <div class="cta"><a href="#catalogue" class="btn">Catalogue</a><button class="btn btn-accent" onclick="document.getElementById('contact').showModal()">Contact</button></div>
+      <div class="cta">
+        <a href="#catalogue" class="btn">Catalogue</a>
+        <button class="btn btn-accent" onclick="document.getElementById('contact').showModal()">Contact</button>
+      </div>
     </div>
   </header>
 
@@ -61,11 +105,29 @@
       <div class="card copy">
         <h2>Créations 3D originales, prêtes à commander</h2>
         <p class="sub">Figurines, accessoires et objets personnalisés imprimés en France. Qualité soignée, délais rapides, service direct avec le créateur.</p>
-        <div class="badges"><span class="badge">Imprimé en France 🇫🇷</span><span class="badge">Paiement sécurisé</span><span class="badge">Sur-mesure possible</span></div>
-        <div class="cta"><a href="#catalogue" class="btn btn-accent">Voir le catalogue</a><button class="btn" onclick="document.getElementById('how').showModal()">Comment commander ?</button></div>
+        <div class="badges">
+          <span class="badge">Imprimé en France 🇫🇷</span>
+          <span class="badge">Paiement sécurisé</span>
+          <span class="badge">Sur-mesure possible</span>
+        </div>
+        <div class="cta">
+          <a href="#catalogue" class="btn btn-accent">Voir le catalogue</a>
+          <button class="btn" onclick="document.getElementById('how').showModal()">Comment commander ?</button>
+        </div>
         <p class="small">⚠️ Pas de fichiers STL, uniquement la vente de produits/prestations.</p>
       </div>
-      <div class="card mock"><p>👉 Remplace par une photo de tes créations (1200×900)</p></div>
+
+      <!-- BANNIÈRE -->
+      <div class="card">
+        <img
+          src="Banniere.jpg"
+          alt="Fab3DCréation — bannière"
+          class="hero-banner"
+          loading="eager"
+          decoding="async"
+          width="1536" height="385"
+        >
+      </div>
     </section>
 
     <section id="catalogue" class="section">
@@ -73,48 +135,68 @@
       <div class="grid" id="products"></div>
     </section>
 
-    <footer class="section small">© <span id="year"></span> Fab3DCréation — Tous droits réservés · <a href="mailto:contact@exemple.com">contact@exemple.com</a></footer>
+    <footer class="section small">
+      © <span id="year"></span> Fab3DCréation — Tous droits réservés ·
+      <a href="mailto:contact@exemple.com">contact@exemple.com</a>
+    </footer>
 
+    <!-- Formulaire d'avis (affiché si ?token=...) -->
     <section class="section" id="reviews-help" style="display:none">
-      <div class="card"><div class="content">
-        <div class="title">Laisser un avis</div>
-        <p class="desc">Merci pour votre achat 🙏 Donnez une note, un commentaire et ajoutez jusqu’à <b>3 photos</b> (5 Mo max chacune).</p>
-        <form id="reviewForm">
-          <div style="display:flex;gap:10px;align-items:center;margin:8px 0"><label>Note :</label>
-            <div id="stars" class="stars" aria-label="Note">
-              <input type="radio" name="rating" value="1">★
-              <input type="radio" name="rating" value="2">★★
-              <input type="radio" name="rating" value="3" checked>★★★
-              <input type="radio" name="rating" value="4">★★★★
-              <input type="radio" name="rating" value="5">★★★★★
+      <div class="card">
+        <div class="content">
+          <div class="title">Laisser un avis</div>
+          <p class="desc">Merci pour votre achat 🙏 Donnez une note, un commentaire et ajoutez jusqu’à <b>3 photos</b> (5 Mo max chacune).</p>
+          <form id="reviewForm">
+            <div style="display:flex;gap:10px;align-items:center;margin:8px 0">
+              <label>Note :</label>
+              <div id="stars" class="stars" aria-label="Note">
+                <input type="radio" name="rating" value="1">★
+                <input type="radio" name="rating" value="2">★★
+                <input type="radio" name="rating" value="3" checked>★★★
+                <input type="radio" name="rating" value="4">★★★★
+                <input type="radio" name="rating" value="5">★★★★★
+              </div>
             </div>
-          </div>
-          <textarea id="reviewText" rows="4" placeholder="Votre avis (min. 10 caractères)" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:var(--text);padding:10px"></textarea>
-          <div style="margin-top:10px">
-            <label class="btn" for="reviewPhotos" style="cursor:pointer;display:inline-block">Ajouter des photos (max 3)</label>
-            <input id="reviewPhotos" type="file" accept="image/*" multiple style="display:none">
-            <div id="previews" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div>
-            <p class="small">Formats JPG/PNG/WebP — 5 Mo max.</p>
-          </div>
-          <div class="cta" style="margin-top:12px"><button id="sendReview" class="btn btn-accent" type="submit">Envoyer l’avis</button><span id="reviewMsg" class="small" role="status" aria-live="polite"></span></div>
-        </form>
-      </div></div>
+
+            <textarea id="reviewText" rows="4" placeholder="Votre avis (min. 10 caractères)" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:var(--text);padding:10px"></textarea>
+
+            <div style="margin-top:10px">
+              <label class="btn" for="reviewPhotos" style="cursor:pointer;display:inline-block">Ajouter des photos (max 3)</label>
+              <input id="reviewPhotos" type="file" accept="image/*" multiple style="display:none">
+              <div id="previews" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div>
+              <p class="small">Formats JPG/PNG/WebP — 5 Mo max.</p>
+            </div>
+
+            <div class="cta" style="margin-top:12px">
+              <button id="sendReview" class="btn btn-accent" type="submit">Envoyer l’avis</button>
+              <span id="reviewMsg" class="small" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
 
-  <dialog id="how"><div class="dialog-body">
-    <h3 style="margin:0 0 6px">Comment commander</h3>
-    <ol style="margin:8px 0 0 18px; line-height:1.6; color:#8a90a2">
-      <li>Choisissez un produit et cliquez sur <strong>Acheter</strong>.</li>
-      <li>Paiement sur une page sécurisée (Stripe/Etsy/PayPal).</li>
-      <li>Indiquez si besoin vos personnalisations (couleur, taille...).</li>
-    </ol>
-  </div><div class="dialog-actions"><button class="btn" onclick="document.getElementById('how').close()">Fermer</button></div></dialog>
+  <!-- Dialogs -->
+  <dialog id="how">
+    <div class="dialog-body">
+      <h3 style="margin:0 0 6px">Comment commander</h3>
+      <ol style="margin:8px 0 0 18px; line-height:1.6; color:#8a90a2">
+        <li>Choisissez un produit et cliquez sur <strong>Acheter</strong>.</li>
+        <li>Paiement sur une page sécurisée (Stripe/Etsy/PayPal).</li>
+        <li>Indiquez si besoin vos personnalisations (couleur, taille...).</li>
+      </ol>
+    </div>
+    <div class="dialog-actions"><button class="btn" onclick="document.getElementById('how').close()">Fermer</button></div>
+  </dialog>
 
-  <dialog id="contact"><div class="dialog-body">
-    <h3 style="margin:0 0 6px">Contact</h3>
-    <p class="small">Email : <a href="mailto:contact@exemple.com">contact@exemple.com</a> — Instagram : <a href="#">@fab3dcreation</a></p>
-  </div><div class="dialog-actions"><button class="btn" onclick="document.getElementById('contact').close()">Fermer</button></div></dialog>
+  <dialog id="contact">
+    <div class="dialog-body">
+      <h3 style="margin:0 0 6px">Contact</h3>
+      <p class="small">Email : <a href="mailto:contact@exemple.com">contact@exemple.com</a> — Instagram : <a href="#">@fab3dcreation</a></p>
+    </div>
+    <div class="dialog-actions"><button class="btn" onclick="document.getElementById('contact').close()">Fermer</button></div>
+  </dialog>
 
   <script>
     const SOCIALS = { etsy:"", instagram:"https://instagram.com/fab3dcreation", email:"contact@exemple.com" };
@@ -176,7 +258,7 @@
             <div>
               <div class="small">${new Date(r.created_at).toLocaleDateString('fr-FR')}</div>
               <div>${(r.comment||'').replace(/[<>]/g,'')}</div>
-              <div class="photos-grid">${photos.map(p=>`<a href="${p}" target="_blank" rel="noreferrer"><img src="${p}" alt="photo avis"></a>`).join('')}</div>
+              <div class="photos-grid">${photos.map(p=>`<a href="${p}" target="_blank" rel="noreferrer"><img src="${p}" alt="photo avis" loading="lazy"></a>`).join('')}</div>
             </div>`;
           wrap.appendChild(item);
         }
@@ -197,7 +279,7 @@
       files.forEach(f=>{
         if(f.size>MAX_SIZE){ const p=document.createElement('p'); p.className='small'; p.textContent=`${f.name} dépasse 5 Mo`; previews.appendChild(p); return; }
         const url = URL.createObjectURL(f);
-        const img = document.createElement('img'); img.src=url; img.style.width='96px'; img.style.height='96px'; img.style.objectFit='cover'; img.style.borderRadius='10px'; img.style.border='1px solid rgba(255,255,255,.08)';
+        const img = document.createElement('img'); img.src=url; img.loading='lazy'; img.style.width='96px'; img.style.height='96px'; img.style.objectFit='cover'; img.style.borderRadius='10px'; img.style.border='1px solid rgba(255,255,255,.08)';
         previews.appendChild(img);
       });
     });
@@ -238,13 +320,16 @@
     }
     function injectStructuredData(){
       try{
-        const org = {'@context':'https://schema.org','@type':'Organization',name:'Fab3DCréation',url:document.querySelector('link[rel=canonical]')?.href||location.origin};
-        const site = {'@context':'https://schema.org','@type':'WebSite',name:'Fab3DCréation',url:document.querySelector('link[rel=canonical]')?.href||location.origin};
-        const products = PRODUCTS.map(p=>({'@context':'https://schema.org','@type':'Product',name:p.title,description:p.desc,image:[p.img],sku:p.id,offers:{'@type':'Offer',price:p.price,priceCurrency:'EUR',availability:'https://schema.org/InStock',url:p.links?.buy||location.origin}}));
+        const urlCanon = document.querySelector('link[rel=canonical]')?.href || location.origin;
+        const org = {'@context':'https://schema.org','@type':'Organization',name:'Fab3DCréation',url:urlCanon};
+        const site = {'@context':'https://schema.org','@type':'WebSite',name:'Fab3DCréation',url:urlCanon};
+        const products = PRODUCTS.map(p=>({'@context':'https://schema.org','@type':'Product',name:p.title,description:p.desc,image:[p.img],sku:p.id,offers:{'@type':'Offer',price:p.price,priceCurrency:'EUR',availability:'https://schema.org/InStock',url:p.links?.buy||urlCanon}}));
         const s = document.createElement('script'); s.type='application/ld+json'; s.textContent = JSON.stringify([org,site,...products]); document.head.appendChild(s);
       }catch(e){}
     }
     init();
   </script>
 </body>
+</html>
+
 </html>
