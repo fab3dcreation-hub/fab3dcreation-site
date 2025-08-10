@@ -8,7 +8,6 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://fab3dcreation-site.netlify.app/" />
 
-  <!-- Social (OG/Twitter) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fab3dcreation-site.netlify.app/" />
   <meta property="og:title" content="Fab3DCréation — Boutique 3D" />
@@ -20,12 +19,8 @@
     :root{
       --bg:#0b0c10; --panel:#0f1116; --muted:#8a90a2; --text:#e8ecf1;
       --accent:#6ee7b7; --accent2:#60a5fa; --radius:18px;
-
-      /* hauteurs bannière */
-      --hero-h-desktop: 56vh;
-      --hero-h-mobile: 28vh;
+      --hero-h-desktop: 56vh; --hero-h-mobile: 28vh;
     }
-
     *{box-sizing:border-box}
     html,body{margin:0;background:linear-gradient(180deg,#0a0b0e,#0b0c10 40%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
@@ -47,28 +42,31 @@
     .hero{display:grid;gap:18px;margin:0}
     .mast{width:100%;height:var(--hero-h-desktop);overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06);background:#0b0c10}
     .mast-img{width:100%;height:100%;object-fit:cover;object-position:center}
-
     .copy{max-width:1100px;margin:0 auto;padding-top:4px}
     .copy h2{margin:0 0 10px;font-size:36px;line-height:1.1}
     .copy .sub{color:var(--muted);font-size:16px;margin:0 0 14px}
-
-    /* Badges + CTA (centrés + animation de groupe) */
     .cta-block{display:flex;flex-direction:column;align-items:center;gap:0;opacity:0;transform:translateY(18px);animation:fadeUp .7s ease-out .15s forwards}
-    .badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:12px 0 60px} /* 60px d’espace sous les badges */
+    .badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:12px 0 60px}
     .badge{font-size:12px;font-weight:800;color:#0b0c10;padding:8px 10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:1px solid rgba(255,255,255,.2);transition:all .3s ease}
     .badge:hover{transform:scale(1.08);box-shadow:0 4px 10px rgba(0,0,0,.3)}
     .cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-
     .note{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;margin-top:12px}
     .note:before{content:"⚠️"}
 
-    /* Sections */
+    /* Sections produits */
     .section{margin:26px 0}
     .section h3{margin:0 0 10px;font-size:22px}
-    footer{margin:30px 10px;color:var(--muted);font-size:13px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg,#0f1116,#0c0d11);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+    .thumb{aspect-ratio:4/3;background:#0b0c10 center/cover no-repeat}
+    .content{padding:16px;display:flex;flex-direction:column;gap:8px}
+    .title{font-size:18px;font-weight:700;margin:0}
+    .desc{color:var(--muted);font-size:14px;min-height:38px;margin:0}
+    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+    .price{font-weight:800;font-size:18px}
 
-    /* Dialog */
-    dialog{border:none;border-radius:14px;max-width:560px;width:calc(100% - 24px);padding:0;background:var(--panel);color:var(--text)}
+    /* Dialogs */
+    dialog{border:none;border-radius:14px;max-width:560px;width:calc(100% - 24px);padding:0;background:#0f1116;color:var(--text)}
     dialog::backdrop{background:rgba(0,0,0,.55)}
     .dlg-body{padding:18px;border-bottom:1px solid rgba(255,255,255,.06)}
     .dlg-actions{display:flex;gap:10px;justify-content:flex-end;padding:14px}
@@ -78,7 +76,8 @@
     @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
     @media (prefers-reduced-motion: reduce){.cta-block,.btn{animation:none!important;transition:none!important}.cta-block{opacity:1;transform:none}}
 
-    /* Mobile */
+    /* Responsive */
+    @media (max-width: 960px){ .grid{grid-template-columns:1fr 1fr} }
     @media (max-width: 640px){
       .brand h1{font-size:16px}
       .logo{width:28px;height:28px;border-radius:10px}
@@ -87,11 +86,9 @@
       .mast{height:var(--hero-h-mobile)}
       .hero{padding-bottom:5px}
       .copy h2{font-size:28px}
+      .grid{grid-template-columns:1fr}
     }
-    @media (max-width: 420px){
-      .brand h1{font-size:15px}
-      .btn{padding:7px 10px;font-size:13px}
-    }
+    @media (max-width: 420px){ .brand h1{font-size:15px} .btn{padding:7px 10px;font-size:13px} }
   </style>
 </head>
 <body>
@@ -126,7 +123,6 @@
           Qualité soignée, délais rapides, service direct avec le créateur.
         </p>
 
-        <!-- Bloc centré + animé -->
         <div class="cta-block">
           <div class="badges">
             <span class="badge">Imprimé en France 🇫🇷</span>
@@ -143,10 +139,16 @@
       </div>
     </section>
 
-    <!-- Catalogue -->
+    <!-- ===== PRODUITS STANDARDS (achat direct) ===== -->
     <section id="catalogue" class="section container">
-      <h3>Produits en vedette</h3>
-      <!-- tes cartes produits arriveront ici -->
+      <h3>Produits standards</h3>
+      <div class="grid" id="grid-standard"></div>
+    </section>
+
+    <!-- ===== PRODUITS PERSONNALISABLES (devis) ===== -->
+    <section class="section container">
+      <h3>Produits personnalisables</h3>
+      <div class="grid" id="grid-custom"></div>
     </section>
 
     <!-- Contact -->
@@ -165,9 +167,9 @@
     <div class="dlg-body">
       <h3 style="margin:0 0 8px">Comment commander</h3>
       <ol style="margin:8px 0 0 18px; line-height:1.6; color:#8a90a2">
-        <li>Choisissez un produit puis cliquez sur <strong>Acheter</strong> ou <strong>Devis</strong>.</li>
-        <li>Paiement sécurisé (Stripe/Etsy/PayPal) ou devis personnalisé.</li>
-        <li>Indiquez vos personnalisations (couleur, taille, texte…).</li>
+        <li>Choisissez un produit puis cliquez sur <strong>Acheter</strong> (ou <strong>Devis</strong> si personnalisable).</li>
+        <li>Paiement sécurisé (Stripe/Etsy/PayPal) ou réponse par email pour les personnalisations.</li>
+        <li>Indiquez vos options (couleur, taille, texte…).</li>
         <li>Suivi et envoi rapide depuis la France.</li>
       </ol>
     </div>
@@ -177,11 +179,154 @@
     </div>
   </dialog>
 
-  <script>
-    // Année footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- Modale « Choix remise / envoi » -->
+  <dialog id="buyDlg">
+    <div class="dlg-body">
+      <h3 id="buyTitle" style="margin:0 0 8px">Achat</h3>
+      <p class="sub" id="buyPrice">Prix : —</p>
+      <div style="display:grid;gap:8px;margin-top:10px">
+        <label><input type="radio" name="delivery" value="pickup" checked> Remise en main propre (0€)</label>
+        <label><input type="radio" name="delivery" value="shipping"> Envoi ( + <span id="shipCost">4,90€</span> )</label>
+      </div>
+      <p class="sub" style="margin-top:8px">Lieu de remise communiqué après paiement. Envoi via lettre suivie/colis.</p>
+    </div>
+    <div class="dlg-actions">
+      <button class="btn btn-plain" data-close>Annuler</button>
+      <button class="btn btn-accent" id="confirmBuy">Continuer</button>
+    </div>
+  </dialog>
 
-    // Ouvrir / fermer la modale via data-open / data-close
+  <!-- Modale « Demande de devis » -->
+  <dialog id="quoteDlg">
+    <form id="quoteForm" method="dialog">
+      <div class="dlg-body">
+        <h3 style="margin:0 0 8px">Demander un devis</h3>
+        <div style="display:grid;gap:10px">
+          <input type="text" id="qName" placeholder="Votre nom" required
+                 style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#10131a;color:#fff">
+          <input type="email" id="qEmail" placeholder="Votre email" required
+                 style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#10131a;color:#fff">
+          <textarea id="qMsg" rows="4" placeholder="Votre personnalisation (taille, couleur, texte...)"
+                    style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#10131a;color:#fff"></textarea>
+        </div>
+        <p class="sub" id="qProd" style="margin-top:8px"></p>
+      </div>
+      <div class="dlg-actions">
+        <button class="btn btn-plain" data-close>Annuler</button>
+        <button class="btn btn-accent" id="sendQuote">Envoyer</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const euro = n => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n);
+
+    /* --- Données fictives --- */
+    const SHIPPING = 4.9; // coût envoi standard
+    const STANDARD = [
+      { id:"stand-01", title:"Support téléphone minimal", price:9.90, img:"https://picsum.photos/seed/stand/800/600", buy:"https://example.com/achat/stand-01" },
+      { id:"stand-02", title:"Porte-clés 3D (lot de 2)", price:7.50, img:"https://picsum.photos/seed/key/800/600", buy:"https://example.com/achat/stand-02" },
+      { id:"stand-03", title:"Boîte rangement cartes SD", price:12.00, img:"https://picsum.photos/seed/sdcase/800/600", buy:"https://example.com/achat/stand-03" },
+    ];
+    const CUSTOM = [
+      { id:"cust-01", title:"Mini-figurine style LEGO — perso", price:"à partir de 29,90€", img:"https://picsum.photos/seed/lego/800/600" },
+      { id:"cust-02", title:"Lithophanie photo personnalisée", price:"à partir de 24,90€", img:"https://picsum.photos/seed/litho/800/600" },
+      { id:"cust-03", title:"Plaque prénom / logo 3D", price:"à partir de 19,90€", img:"https://picsum.photos/seed/nameplate/800/600" },
+    ];
+
+    /* --- Rendu cartes --- */
+    function cardStandard(p){
+      const el = document.createElement('div'); el.className='card';
+      el.innerHTML = `
+        <div class="thumb" style="background-image:url('${p.img}')"></div>
+        <div class="content">
+          <div class="title">${p.title}</div>
+          <p class="desc">Produit prêt à l'envoi, fabrication rapide.</p>
+          <div class="meta">
+            <div class="price">${euro(p.price)}</div>
+            <button class="btn btn-accent" data-buy="${p.id}">Acheter</button>
+          </div>
+        </div>`;
+      return el;
+    }
+    function cardCustom(p){
+      const el = document.createElement('div'); el.className='card';
+      el.innerHTML = `
+        <div class="thumb" style="background-image:url('${p.img}')"></div>
+        <div class="content">
+          <div class="title">${p.title}</div>
+          <p class="desc">Personnalisez couleurs, dimensions ou texte.</p>
+          <div class="meta">
+            <div class="price">${p.price}</div>
+            <button class="btn" data-quote="${p.id}">Demander un devis</button>
+          </div>
+        </div>`;
+      return el;
+    }
+
+    const mapStandard = new Map(STANDARD.map(p=>[p.id,p]));
+    /* --- Injecte dans la page --- */
+    const gs = document.getElementById('grid-standard'); STANDARD.forEach(p=>gs.appendChild(cardStandard(p)));
+    const gc = document.getElementById('grid-custom');   CUSTOM.forEach(p=>gc.appendChild(cardCustom(p)));
+
+    /* --- Modale Achat : main propre / envoi --- */
+    const buyDlg = document.getElementById('buyDlg');
+    const buyTitle = document.getElementById('buyTitle');
+    const buyPrice = document.getElementById('buyPrice');
+    let currentProd = null;
+
+    document.addEventListener('click', (e)=>{
+      const buyBtn = e.target.closest('[data-buy]');
+      const quoteBtn = e.target.closest('[data-quote]');
+      const closeBtn = e.target.closest('[data-close]');
+      if (buyBtn){
+        const id = buyBtn.getAttribute('data-buy');
+        const p = mapStandard.get(id); if(!p) return;
+        currentProd = p;
+        buyTitle.textContent = p.title;
+        buyPrice.textContent = `Prix : ${euro(p.price)} (hors envoi)`;
+        document.querySelector('input[name="delivery"][value="pickup"]').checked = true;
+        if (buyDlg.showModal) buyDlg.showModal(); else buyDlg.setAttribute('open','');
+      }
+      if (quoteBtn){
+        const id = quoteBtn.getAttribute('data-quote');
+        const p = CUSTOM.find(x=>x.id===id);
+        document.getElementById('qProd').textContent = `Produit : ${p?.title || ''}`;
+        const q = document.getElementById('quoteDlg'); if(q.showModal) q.showModal(); else q.setAttribute('open','');
+      }
+      if (closeBtn){
+        const dlg = closeBtn.closest('dialog');
+        if (dlg?.close) dlg.close(); else dlg.removeAttribute('open');
+      }
+    });
+
+    /* Confirmer l'achat après choix livraison */
+    document.getElementById('confirmBuy').addEventListener('click', ()=>{
+      if(!currentProd) return;
+      const method = document.querySelector('input[name="delivery"]:checked')?.value || 'pickup';
+      const add = method==='shipping' ? SHIPPING : 0;
+      const total = (currentProd.price + add).toFixed(2);
+      // Redirection fictive : ajoute méthode & total en paramètres
+      const url = `${currentProd.buy}?method=${method}&total=${total}`;
+      window.open(url, '_blank');
+      if (buyDlg.close) buyDlg.close(); else buyDlg.removeAttribute('open');
+    });
+
+    /* Envoi du devis (démo) */
+    document.getElementById('sendQuote').addEventListener('click', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('qName').value.trim();
+      const email = document.getElementById('qEmail').value.trim();
+      const msg = document.getElementById('qMsg').value.trim();
+      if(!name || !email){ alert('Merci de remplir nom + email.'); return; }
+      // Démo : ouvre un mail prérempli
+      const body = encodeURIComponent(`${msg}\n\n— ${name}`);
+      window.location.href = `mailto:contact@exemple.com?subject=Demande%20devis%20Fab3DCréation&body=${body}`;
+      const q = document.getElementById('quoteDlg'); if(q.close) q.close(); else q.removeAttribute('open');
+    });
+
+    // Ouvrir/fermer la modale "Comment commander"
     document.addEventListener('click', (e)=>{
       const openBtn = e.target.closest('[data-open]');
       if(openBtn){
@@ -190,17 +335,10 @@
         const dlg = document.getElementById(id);
         if(!dlg) return;
         if(typeof dlg.showModal === 'function') dlg.showModal();
-        else dlg.setAttribute('open',''); // fallback
-      }
-      const closeBtn = e.target.closest('[data-close]');
-      if(closeBtn){
-        e.preventDefault();
-        const dlg = closeBtn.closest('dialog');
-        if(!dlg) return;
-        if(typeof dlg.close === 'function') dlg.close();
-        else dlg.removeAttribute('open');
+        else dlg.setAttribute('open','');
       }
     });
+
   </script>
 </body>
 </html>
