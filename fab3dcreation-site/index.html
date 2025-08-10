@@ -163,5 +163,23 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+  // Ouvrir la modale quand on clique sur un élément ayant data-open="how"
+  document.querySelectorAll('[data-open]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.getAttribute('data-open');
+      const dlg = document.getElementById(id);
+      if (dlg?.showModal) dlg.showModal();
+    });
+  });
+
+  // Fermer la modale sur les éléments data-close
+  document.querySelectorAll('[data-close]').forEach(btn=>{
+    btn.addEventListener('click', ()=> {
+      const dlg = btn.closest('dialog');
+      dlg?.close();
+    });
+  });
+</script>
 </body>
 </html>
