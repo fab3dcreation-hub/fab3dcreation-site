@@ -4,278 +4,194 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fab3DCréation — Boutique</title>
-
-  <!-- SEO de base -->
   <meta name="description" content="Boutique officielle Fab3DCréation : figurines, lithophanies et objets 3D personnalisés imprimés en France." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://fab3dcreation-site.netlify.app/" />
 
-  <!-- Open Graph / Twitter -->
+  <!-- Social -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fab3dcreation-site.netlify.app/" />
   <meta property="og:title" content="Fab3DCréation — Boutique 3D, figurines & objets personnalisés" />
   <meta property="og:description" content="Créations 3D originales imprimées en France : figurines, lithophanies, cadeaux personnalisés. Paiement sécurisé." />
   <meta property="og:image" content="https://fab3dcreation-site.netlify.app/images/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fab3DCréation — Boutique 3D" />
-  <meta name="twitter:description" content="Figurines & objets 3D personnalisés imprimés en France." />
-  <meta name="twitter:image" content="https://fab3dcreation-site.netlify.app/images/og-cover.jpg" />
 
   <style>
     :root{
-      /* >>> Tu peux ajuster la bannière ici (simple !) <<< */
-      --banner-h-max: 560px;     /* hauteur max desktop */
-      --banner-pos-y: 76%;       /* cadrage vertical (desktop) */
-      /* Thème */
-      --bg:#0b0c10; --muted:#8a90a2; --text:#e8ecf1; --accent:#6ee7b7; --accent-2:#60a5fa; --radius:18px;
+      --bg:#0b0c10; --panel:#0f1116; --muted:#8a90a2; --text:#e8ecf1;
+      --accent:#6ee7b7; --accent2:#60a5fa; --radius:18px;
+      /* hauteurs de bannière */
+      --hero-h-desktop: 56vh;
+      --hero-h-mobile: 48vh;
     }
 
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#0a0b0e,#0b0c10 40%);color:var(--text)}
+    html,body{margin:0;background:linear-gradient(180deg,#0a0b0e,#0b0c10 40%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
 
-    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
 
-    header{position:sticky;top:0;z-index:50;background:rgba(10,11,14,.6);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
-    .brand h1{font-size:18px;margin:0;font-weight:700;letter-spacing:.3px}
-    .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:var(--text);font-weight:600;cursor:pointer}
-    .btn-accent{background:linear-gradient(135deg,var(--accent),var(--accent-2));border:none;color:#0a0b0e}
+    /* Header */
+    header{position:sticky;top:0;z-index:40;background:rgba(10,11,14,.65);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    .brand h1{margin:0;font-size:18px;white-space:nowrap}
+    .nav-cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{padding:9px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:var(--text);font-weight:600;cursor:pointer}
+    .btn-acc{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#0a0b0e}
 
-    /* === BANNIÈRE PLEIN ÉCRAN RESPONSIVE === */
-    .mast{
-      position:relative;
-      width:100%;
-      overflow:hidden;
-      border-bottom:1px solid rgba(255,255,255,.06);
-      background:#090b0f;
+    /* ====== HERO (bannière) ====== */
+    .hero-mast{
+      position:relative; width:100%; overflow:hidden;
+      height:var(--hero-h-desktop);
     }
-    /* L'image couvre toute la largeur, on contrôle la hauteur et le cadrage via CSS variables */
-    .mast-img{
-      width:100%;
-      height:clamp(240px, 36vw, var(--banner-h-max));
-      object-fit:cover;
-      object-position:50% var(--banner-pos-y);
-      display:block;
-      filter:saturate(102%);
+    /* picture > img WebP/JPG */
+    .hero-img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover; object-position:center;
+      display:block; user-select:none; -webkit-user-drag:none;
+    }
+    /* léger décalage vertical pour recentrer le logo dans le cadre */
+    @media (min-width: 900px){
+      .hero-img{ object-position:50% 42%; }
+    }
+    @media (max-width: 899px){
+      .hero-mast{ height:var(--hero-h-mobile); }
+      .hero-img{ object-position:50% 35%; }
     }
 
-    /* === Bloc texte sous la bannière === */
-    .hero{padding:26px 0}
-    .copy h2{margin:0 0 8px;font-size:28px;line-height:1.1}
-    .sub{color:var(--muted);font-size:15px}
-    .badges{display:flex;gap:10px;margin:16px 0 22px;flex-wrap:wrap}
-    .badge{font-size:12px;color:#0a0b0e;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:8px 10px;border-radius:999px}
+    /* bloc texte */
+    .hero-copy{padding:24px 0}
+    h2{margin:0 0 8px;font-size:32px;line-height:1.2}
+    .sub{color:var(--muted)}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 18px}
+    .badge{font-size:12px;color:#0a0b0e;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));padding:8px 10px;border-radius:999px}
+    .small{font-size:12px;color:var(--muted);margin-top:6px}
 
-    .section{margin:26px 0}
-    .section h3{font-size:22px;margin:0 0 10px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+
+    .section{margin:24px 0}
+    .section h3{margin:0 0 10px;font-size:22px}
+
+    /* Produits – placeholder simple */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .card{background:linear-gradient(180deg,#0f1116,#0c0d11);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden}
-    .thumb{aspect-ratio:4/3;background:#0b0c10 center/cover no-repeat}
+    .thumb{aspect-ratio:4/3;background:#0b0c10 url('https://picsum.photos/seed/fab3d/800/600') center/cover no-repeat}
     .content{padding:16px}
-    .title{font-size:18px;font-weight:700;margin:0 0 6px}
-    .desc{color:var(--muted);font-size:14px;min-height:40px}
-    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
-    .price{font-weight:800;font-size:18px}
+    .title{font-weight:700}
+    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+    .price{font-weight:800}
 
-    .reviews{border-top:1px solid rgba(255,255,255,.06);margin-top:10px;padding:12px}
-    .reviews h4{margin:0 0 8px;font-size:14px;color:var(--muted);font-weight:700;letter-spacing:.2px}
-    .review{display:grid;grid-template-columns:auto 1fr;gap:10px;margin:8px 0;padding:8px;border:1px solid rgba(255,255,255,.06);border-radius:12px}
-    .stars-txt{font-size:14px}
-    .photos-grid{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-    .photos-grid img{width:70px;height:70px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
-
-    footer{color:var(--muted)}
-
-    /* === Responsive === */
-    @media (max-width: 1024px){
-      /* sur laptop/tablette : on remonte un peu le cadrage */
-      :root{ --banner-pos-y: 72%; }
-    }
-    @media (max-width: 768px){
-      :root{
-        /* bannière un peu plus basse et cadrage recentré pour mobile */
-        --banner-h-max: 420px;
-        --banner-pos-y: 60%;
-      }
-      .grid{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width: 520px){
+    @media (max-width: 960px){ .grid{grid-template-columns:1fr 1fr} }
+    @media (max-width: 640px){
       .grid{grid-template-columns:1fr}
-      .copy h2{font-size:24px}
+      h2{font-size:28px}
+      .brand h1{font-size:16px}
+      .nav-cta{width:100%;justify-content:flex-end}
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="container nav">
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <h1>Fab3DCréation</h1>
       </div>
-      <div class="cta">
-        <a href="#catalogue" class="btn">Catalogue</a>
-        <button class="btn btn-accent" onclick="document.getElementById('contact').showModal()">Contact</button>
+      <div class="nav-cta">
+        <a href="#catalogue" class="btn btn-acc">Catalogue</a>
+        <button class="btn" onclick="document.getElementById('contact').showModal()">Contact</button>
       </div>
     </div>
   </header>
 
-  <!-- Bannière plein écran -->
-  <section class="mast" aria-label="Bannière Fab3DCréation">
-    <!-- Garde bien ce nom de fichier tel qu’uploadé : /Banniere.jpg -->
-    <img class="mast-img" src="/Banniere.jpg" alt="Fab3DCréation — bannière">
+  <!-- Bannière responsive -->
+  <section class="hero-mast" aria-label="Bannière Fab3DCréation">
+    <picture>
+      <!-- 1) WebP rapide -->
+      <source srcset="images/banniere.webp" type="image/webp">
+      <!-- 2) fallback JPG/PNG (garde ton fichier actuel au cas où) -->
+      <img class="hero-img" src="Banniere.jpg" alt="Fab3DCréation — bannière">
+    </picture>
   </section>
 
+  <!-- Texte d’accroche -->
   <main class="container">
-    <!-- Bloc texte -->
-    <section class="hero">
-      <div class="copy">
-        <h2>Créations 3D originales, prêtes à commander</h2>
-        <p class="sub">Figurines, accessoires et objets personnalisés imprimés en France. Qualité soignée, délais rapides, service direct avec le créateur.</p>
-        <div class="badges">
-          <span class="badge">Imprimé en France 🇫🇷</span>
-          <span class="badge">Paiement sécurisé</span>
-          <span class="badge">Sur-mesure possible</span>
-        </div>
-        <div class="cta">
-          <a href="#catalogue" class="btn btn-accent">Voir le catalogue</a>
-          <button class="btn" onclick="document.getElementById('how').showModal()">Comment commander ?</button>
-        </div>
-        <p class="sub" style="margin-top:10px">⚠️ Pas de fichiers STL, uniquement la vente de produits/prestations.</p>
+    <section class="hero-copy">
+      <h2>Créations 3D originales, prêtes à commander</h2>
+      <p class="sub">Figurines, accessoires et objets personnalisés imprimés en France. Qualité soignée, délais rapides, service direct avec le créateur.</p>
+
+      <div class="badges">
+        <span class="badge">Imprimé en France 🇫🇷</span>
+        <span class="badge">Paiement sécurisé</span>
+        <span class="badge">Sur-mesure possible</span>
       </div>
+
+      <div class="cta-row">
+        <a href="#catalogue" class="btn btn-acc">Voir le catalogue</a>
+        <button class="btn" onclick="document.getElementById('how').showModal()">Comment commander ?</button>
+      </div>
+      <p class="small">⚠️ Pas de fichiers STL, uniquement la vente de produits/prestations.</p>
     </section>
 
-    <!-- Catalogue -->
+    <!-- Catalogue (démo) -->
     <section id="catalogue" class="section">
       <h3>Produits en vedette</h3>
       <div class="grid" id="products"></div>
     </section>
 
-    <!-- Avis (liens avec token) -->
-    <section class="section" id="reviews-help" style="display:none">
-      <div class="card"><div class="content">
-        <div class="title">Laisser un avis</div>
-        <p class="desc">Merci pour votre achat 🙏 Donnez une note, un commentaire et ajoutez jusqu’à <b>3 photos</b> (5 Mo max chacune).</p>
-        <form id="reviewForm">
-          <div style="display:flex;gap:10px;align-items:center;margin:8px 0">
-            <label>Note :</label>
-            <div id="stars" aria-label="Note">
-              <input type="radio" name="rating" value="1">★
-              <input type="radio" name="rating" value="2">★★
-              <input type="radio" name="rating" value="3" checked>★★★
-              <input type="radio" name="rating" value="4">★★★★
-              <input type="radio" name="rating" value="5">★★★★★
-            </div>
-          </div>
-          <textarea id="reviewText" rows="4" placeholder="Votre avis (min. 10 caractères)" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:var(--text);padding:10px"></textarea>
-          <div style="margin-top:10px">
-            <label class="btn" for="reviewPhotos" style="cursor:pointer;display:inline-block">Ajouter des photos (max 3)</label>
-            <input id="reviewPhotos" type="file" accept="image/*" multiple style="display:none">
-            <div id="previews" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div>
-            <p class="sub">Formats JPG/PNG/WebP — 5 Mo max.</p>
-          </div>
-          <div class="cta" style="margin-top:12px">
-            <button id="sendReview" class="btn btn-accent" type="submit">Envoyer l’avis</button>
-            <span id="reviewMsg" class="sub" role="status" aria-live="polite" style="margin-left:8px"></span>
-          </div>
-        </form>
-      </div></div>
-    </section>
-
-    <footer class="section sub">© <span id="year"></span> Fab3DCréation — Tous droits réservés · <a href="mailto:contact@exemple.com">contact@exemple.com</a></footer>
+    <footer class="section small">© <span id="year"></span> Fab3DCréation — Tous droits réservés</footer>
   </main>
 
-  <!-- Dialogs -->
-  <dialog id="how"><div style="padding:18px;border-bottom:1px solid rgba(255,255,255,.06)">
-    <h3 style="margin:0 0 6px">Comment commander</h3>
+  <!-- Modales -->
+  <dialog id="how"><div class="container" style="padding:18px;max-width:560px">
+    <h3 style="margin:0 0 8px">Comment commander</h3>
     <ol style="margin:8px 0 0 18px; line-height:1.6; color:#8a90a2">
       <li>Choisissez un produit et cliquez sur <strong>Acheter</strong>.</li>
-      <li>Paiement sur une page sécurisée (Stripe/Etsy/PayPal).</li>
-      <li>Indiquez si besoin vos personnalisations (couleur, taille...).</li>
+      <li>Paiement sécurisé (Stripe/Etsy/PayPal).</li>
+      <li>Ajoutez vos personnalisations (couleur, taille...).</li>
     </ol>
-  </div><div style="display:flex;gap:10px;justify-content:flex-end;padding:14px">
-    <button class="btn" onclick="document.getElementById('how').close()">Fermer</button>
+    <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:14px">
+      <button class="btn" onclick="document.getElementById('how').close()">Fermer</button>
+    </div>
   </div></dialog>
 
-  <dialog id="contact"><div style="padding:18px;border-bottom:1px solid rgba(255,255,255,.06)">
-    <h3 style="margin:0 0 6px">Contact</h3>
-    <p class="sub">Email : <a href="mailto:contact@exemple.com">contact@exemple.com</a> — Instagram : <a href="#">@fab3dcreation</a></p>
-  </div><div style="display:flex;gap:10px;justify-content:flex-end;padding:14px">
-    <button class="btn" onclick="document.getElementById('contact').close()">Fermer</button>
+  <dialog id="contact"><div class="container" style="padding:18px;max-width:560px">
+    <h3 style="margin:0 0 8px">Contact</h3>
+    <p class="small">Email : <a href="mailto:contact@exemple.com">contact@exemple.com</a> — Instagram : <a href="#">@fab3dcreation</a></p>
+    <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:14px">
+      <button class="btn" onclick="document.getElementById('contact').close()">Fermer</button>
+    </div>
   </div></dialog>
 
   <script>
-    // --- Données démo
+    // Année
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Démo produits (tu remplaceras par les vrais liens/images)
     const PRODUCTS = [
-      { id:"fig-leonard", title:"Figurine style LEGO — Académicien", price:29.90, desc:"Version peinte main, PLA premium. Options couleur disponibles.", img:"https://picsum.photos/seed/lego/800/600", links:{ buy:"https://buy.stripe.com/test_XXXXXXXX" } },
-      { id:"cadre-bebe", title:"Plaque souvenir naissance (lithophanie)", price:39.90, desc:"Photo en lithophanie + rétroéclairage LED USB-C. Personnalisation prénom/date.", img:"https://picsum.photos/seed/litho/800/600", links:{ buy:"https://buy.stripe.com/test_YYYYYYYY" } },
-      { id:"organiseur-rs", title:"Boîte organiseur médicaments style RS", price:24.90, desc:"14 compartiments, couvercle coulissant, personnalisable.", img:"https://picsum.photos/seed/rsbox/800/600", links:{ buy:"https://buy.stripe.com/test_ZZZZZZZZ" } }
+      { title:"Figurine style LEGO — Académicien", price:29.90, img:"https://picsum.photos/seed/lego/800/600" },
+      { title:"Plaque souvenir naissance (lithophanie)", price:39.90, img:"https://picsum.photos/seed/litho/800/600" },
+      { title:"Boîte organiseur médicaments style RS", price:24.90, img:"https://picsum.photos/seed/rsbox/800/600" },
     ];
-
-    const $ = (sel,ctx=document)=>ctx.querySelector(sel);
-    const euro = n => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n);
-
-    function productCard(p){
+    const wrap = document.getElementById('products');
+    PRODUCTS.forEach(p=>{
       const el = document.createElement('div');
       el.className = 'card';
       el.innerHTML = `
         <div class="thumb" style="background-image:url('${p.img}')"></div>
         <div class="content">
           <div class="title">${p.title}</div>
-          <p class="desc">${p.desc}</p>
           <div class="meta">
-            <div class="price">${euro(p.price)}</div>
-            <div class="cta"><a class="btn btn-accent" data-id="${p.id}">Acheter</a></div>
-          </div>
-          <div class="reviews" id="rev-${p.id}">
-            <h4>Avis clients</h4>
-            <div class="reviews-list"><p class="sub">Pas encore d'avis.</p></div>
+            <div class="price">${new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(p.price)}</div>
+            <a class="btn btn-acc">Acheter</a>
           </div>
         </div>`;
-      el.querySelector('a').addEventListener('click',()=>{
-        if(p.links?.buy) window.open(p.links.buy,'_blank'); else alert('Lien d’achat non configuré.');
-      });
-      return el;
-    }
-
-    // Formulaire avis: prévisualisation (local)
-    const MAX_PHOTOS = 3; const MAX_SIZE = 5*1024*1024;
-    const token = new URLSearchParams(location.search).get('token');
-    if(token){ const sect = document.getElementById('reviews-help'); if(sect) sect.style.display='block'; }
-    const fileInput = document.getElementById('reviewPhotos');
-    const previews = document.getElementById('previews');
-    fileInput?.addEventListener('change',()=>{
-      previews.innerHTML='';
-      Array.from(fileInput.files||[]).slice(0,MAX_PHOTOS).forEach(f=>{
-        if(f.size>MAX_SIZE){
-          const p=document.createElement('p'); p.className='sub'; p.textContent=`${f.name} dépasse 5 Mo`; previews.appendChild(p);
-        }else{
-          const url=URL.createObjectURL(f);
-          const img=document.createElement('img'); img.src=url; img.width=96; img.height=96; img.style.objectFit='cover'; img.style.borderRadius='10px'; img.style.border='1px solid rgba(255,255,255,.08)';
-          previews.appendChild(img);
-        }
-      });
+      wrap.appendChild(el);
     });
-
-    document.getElementById('reviewForm')?.addEventListener('submit', async e=>{
-      e.preventDefault();
-      const msg = document.getElementById('reviewMsg');
-      const rating = Number((document.querySelector('input[name="rating"]:checked')||{}).value||3);
-      const comment = document.getElementById('reviewText').value.trim();
-      if(!token){ msg.textContent='Lien d’avis invalide.'; return; }
-      if(comment.length<10){ msg.textContent='Écris au moins 10 caractères.'; return; }
-      msg.textContent='Merci ! (démo : pas de backend configuré)';
-      document.getElementById('sendReview').disabled = true;
-    });
-
-    // Init
-    (function init(){
-      document.getElementById('year').textContent = new Date().getFullYear();
-      const wrap = document.getElementById('products'); PRODUCTS.forEach(p=>wrap.appendChild(productCard(p)));
-    })();
   </script>
 </body>
 </html>
