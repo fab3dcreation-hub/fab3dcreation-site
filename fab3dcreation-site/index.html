@@ -1,212 +1,219 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <link rel="preload" as="image" href="Banniere.jpg" imagesrcset="Banniere_1920.jpg 1920w, Banniere.jpg 2560w" imagesizes="100vw" fetchpriority="high">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fab3DCréation — Boutique</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Boutique de créations 3D originales, accessoires et objets personnalisés imprimés en France." />
+  <meta name="description" content="Boutique officielle Fab3DCréation : figurines, lithophanies et objets 3D personnalisés imprimés en France." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://fab3dcreation.netlify.app/" />
+  <link rel="canonical" href="https://fab3dcreation-site.netlify.app/" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Fab3DCréation" />
-  <meta property="og:description" content="Créations 3D originales, prêtes à commander." />
-  <meta property="og:image" content="https://fab3dcreation.netlify.app/images/preview.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fab3DCréation" />
-  <meta name="twitter:description" content="Créations 3D originales, prêtes à commander." />
-  <meta name="twitter:image" content="https://fab3dcreation.netlify.app/images/preview.jpg" />
+  <!-- (Optionnel) Précharge la bannière pour un affichage instantané -->
+  <link rel="preload" as="image" href="Banniere.jpg" fetchpriority="high">
 
   <style>
-    :root {
-      --bg: #0b0b10;
-      --muted: #8a98a2;
-      --accent: #00b0c1;
-      --accent-2: #19e6a0;
-      --text: #fff;
-      box-sizing: border-box;
-    }
-    *, *:before, *:after { box-sizing: inherit; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
-    a { color: inherit; text-decoration: none; }
+    :root{
+      --bg:#0b0c10;
+      --muted:#8a90a2;
+      --text:#e8ecf1;
+      --accent:#6ee7b7;
+      --accent-2:#60a5fa;
+      --radius:18px;
 
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 24px;
+      /* Réglages bannière adaptative */
+      --banner-pos-y: 78%;
+      --banner-h-min: 220px;
+      --banner-h-max: 560px;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: rgba(11, 11, 14, 0.6);
-      backdrop-filter: saturate(140%) blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 14px 0;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand h1 {
-      font-size: 18px;
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:#0a0b0e;color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
 
-    .btn {
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: #10131a;
-      color: var(--text);
-      font-weight: 600;
-      cursor: pointer;
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:40;
+      background:rgba(10,11,14,.6);
+      backdrop-filter:saturate(140%) blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.06)
     }
-    .btn-accent {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #000;
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    .brand h1{font-size:18px;margin:0;font-weight:700;letter-spacing:.3px}
+    .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:var(--text);font-weight:600;cursor:pointer}
+    .btn-accent{background:linear-gradient(135deg,var(--accent),var(--accent-2));border:none;color:#0a0b0e}
+
+    /* ====== BANNIÈRE FULL-WIDTH & ADAPTATIVE ====== */
+    .mast{
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      overflow: clip;        /* propre et performant */
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
-
-    /* —— Bannière plein écran optimisée —— */
-:root{
-  /* réglage fin de cadrage vertical de l'image (0% = haut, 100% = bas) */
-  --banner-pos-y: 78%;
-  /* hauteur responsive min / préférée / max */
-  --banner-h: clamp(260px, 36vw, 640px);
-}
-
-/* bannière sur toute la largeur, hors container */
-.mast{
-  position: relative;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow: clip;
-}
-
-.mast picture, .mast-img{
-  display: block;
-  width: 100%;
-  height: var(--banner-h);
-}
-
-.mast-img{
-  object-fit: cover;
-  object-position: 50% var(--banner-pos-y);
-  /* anti clignotement pendant le chargement */
-  background: #0b0b10;
-}
-
-/* tailles adaptatives */
-@media (max-width: 960px){
-  :root{ --banner-h: clamp(220px, 42vw, 420px); --banner-pos-y: 72%; }
-}
-@media (max-width: 640px){
-  :root{ --banner-h: clamp(180px, 48vw, 320px); --banner-pos-y: 68%; }
-}
-
-/* accessibilité : éviter les animations si préférence utilisateur */
-@media (prefers-reduced-motion: reduce){
-  .mast-img{ transition: none; }
-}
-
-
-    /* Bloc texte */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      align-items: center;
-      padding: 26px 0;
+    .mast-img{
+      width: 100%;
+      /* hauteur responsive :
+         - min(40vw, 55vh) équilibre entre largeur et hauteur écran
+         - clamp évite les extrêmes (trop petit / trop grand)
+      */
+      height: clamp(var(--banner-h-min), min(40vw, 55vh), var(--banner-h-max));
+      object-fit: cover;
+      object-position: 50% var(--banner-pos-y);
+      display:block;
+      background:#0b0b10; /* évite flash avant chargement */
     }
-    .badges {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 12px 0;
+    @media (max-width: 960px){
+      :root{
+        --banner-pos-y: 72%;
+        --banner-h-min: 200px;
+        --banner-h-max: 520px;
+      }
+      .mast-img{ height: clamp(var(--banner-h-min), min(48vw, 60vh), var(--banner-h-max)); }
     }
-    .badge {
-      background: rgba(255, 255, 255, 0.08);
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 14px;
+    @media (max-width: 640px){
+      :root{
+        --banner-pos-y: 68%;
+        --banner-h-min: 180px;
+        --banner-h-max: 360px;
+      }
+      .mast-img{ height: clamp(var(--banner-h-min), min(60vw, 48vh), var(--banner-h-max)); }
     }
-    .small {
-      font-size: 12px;
-      color: var(--muted);
+    @supports (height: 1svh){
+      .mast-img{ height: clamp(var(--banner-h-min), min(40vw, 55svh), var(--banner-h-max)); }
     }
+    /* ====== FIN BANNIÈRE ====== */
+
+    /* Section texte sous la bannière (hero/intro) */
+    h2{margin:0 0 10px;font-size:28px}
+    .sub{color:var(--muted)}
+    .badges{display:flex;gap:10px;margin:12px 0 18px}
+    .badge{font-size:12px;color:#0a0b0e;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:8px 10px;border-radius:999px}
+    .small{font-size:12px;color:var(--muted)}
+
+    /* Produits */
+    .section{margin:26px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg,#0f1116,#0c0d11);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden}
+    .thumb{aspect-ratio:4/3;background:#0b0c10 center/cover no-repeat}
+    .content{padding:16px}
+    .title{font-size:18px;font-weight:700;margin:0 0 6px}
+    .desc{color:var(--muted);font-size:14px;min-height:40px}
+    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+    .price{font-weight:800;font-size:18px}
+
+    @media (max-width: 960px){ .grid{grid-template-columns:1fr 1fr} }
+    @media (max-width: 640px){ .grid{grid-template-columns:1fr} }
+
+    footer{border-top:1px solid rgba(255,255,255,.06);padding-top:16px;margin-top:20px}
   </style>
 </head>
-
 <body>
+  <!-- Header -->
   <header>
     <div class="container nav">
-      <div class="brand"><h1>Fab3DCréation</h1></div>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div><h1>Fab3DCréation</h1>
+      </div>
       <div class="cta">
-        <a href="#catalogue" class="btn btn-accent">Catalogue</a>
-        <button class="btn" onclick="document.getElementById('contact').showModal()">Contact</button>
+        <a href="#catalogue" class="btn">Catalogue</a>
+        <button class="btn btn-accent" onclick="document.getElementById('contact').showModal()">Contact</button>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <!-- Bannière -->
-    <section class="mast" aria-label="Bannière Fab3DCréation">
-  <picture>
-    <!-- version moderne si tu ajoutes un WebP -->
-    <source srcset="Banniere_1920.webp 1920w, Banniere.webp 2560w" type="image/webp" sizes="100vw">
-    <!-- fallback JPEG -->
-    <source srcset="Banniere_1920.jpg 1920w, Banniere.jpg 2560w" type="image/jpeg" sizes="100vw">
-    <img
-      src="Banniere.jpg"
-      alt="Logo Fab3D, imprimantes et bobines — Fab3DCréation"
-      class="mast-img"
-      width="2560" height="640"
-      loading="eager" decoding="async" fetchpriority="high">
-  </picture>
-    </section>
+  <!-- BANNIÈRE -->
+  <section class="mast" aria-label="Bannière Fab3DCréation">
+    <!-- Tu peux remplacer par un <picture> si tu crées des versions WebP/JPEG multiples -->
+    <img src="Banniere.jpg" alt="Logo Fab3D, imprimantes et bobines — Fab3DCréation" class="mast-img" loading="eager" decoding="async" fetchpriority="high">
+  </section>
 
-    <!-- Texte -->
-    <section class="hero">
-      <div class="card copy">
-        <h2>Créations 3D originales, prêtes à commander</h2>
-        <p class="sub">Figurines, accessoires et objets personnalisés imprimés en France. Qualité soignée, délais rapides, service direct avec le créateur.</p>
-        <div class="badges">
-          <span class="badge">Imprimé en France 🇫🇷</span>
-          <span class="badge">Paiement sécurisé</span>
-          <span class="badge">Sur-mesure possible</span>
-        </div>
-        <div class="cta">
-          <a href="#catalogue" class="btn btn-accent">Voir le catalogue</a>
-          <button class="btn" onclick="document.getElementById('how').showModal()">Comment commander ?</button>
-        </div>
-        <p class="small">⚠️ Pas de fichiers STL, uniquement la vente de produits/prestations.</p>
+  <main class="container">
+    <!-- Texte d’intro -->
+    <section class="section">
+      <h2>Créations 3D originales, prêtes à commander</h2>
+      <p class="sub">Figurines, accessoires et objets personnalisés imprimés en France. Qualité soignée, délais rapides, service direct avec le créateur.</p>
+      <div class="badges">
+        <span class="badge">Imprimé en France 🇫🇷</span>
+        <span class="badge">Paiement sécurisé</span>
+        <span class="badge">Sur-mesure possible</span>
       </div>
+      <div class="cta">
+        <a href="#catalogue" class="btn btn-accent">Voir le catalogue</a>
+        <button class="btn" onclick="document.getElementById('how').showModal()">Comment commander ?</button>
+      </div>
+      <p class="small">⚠️ Pas de fichiers STL, uniquement la vente de produits/prestations.</p>
     </section>
 
     <!-- Catalogue -->
     <section id="catalogue" class="section">
       <h3>Produits en vedette</h3>
-      <div class="grid" id="products">
-        <!-- Produits dynamiques -->
-      </div>
+      <div class="grid" id="products"></div>
     </section>
+
+    <footer class="section small">
+      © <span id="year"></span> Fab3DCréation — Tous droits réservés ·
+      <a href="mailto:contact@exemple.com">contact@exemple.com</a>
+    </footer>
   </main>
+
+  <!-- Modales -->
+  <dialog id="how">
+    <div class="container" style="padding:18px 18px 0">
+      <h3 style="margin:0 0 6px">Comment commander</h3>
+      <ol style="margin:8px 0 0 18px; line-height:1.6; color:#8a90a2">
+        <li>Choisissez un produit et cliquez sur <strong>Acheter</strong>.</li>
+        <li>Paiement sur une page sécurisée (Stripe/Etsy/PayPal).</li>
+        <li>Indiquez si besoin vos personnalisations (couleur, taille...).</li>
+      </ol>
+    </div>
+    <div class="container" style="padding:12px; display:flex; justify-content:flex-end">
+      <button class="btn" onclick="document.getElementById('how').close()">Fermer</button>
+    </div>
+  </dialog>
+
+  <dialog id="contact">
+    <div class="container" style="padding:18px 18px 0">
+      <h3 style="margin:0 0 6px">Contact</h3>
+      <p class="small">Email : <a href="mailto:contact@exemple.com">contact@exemple.com</a> — Instagram : <a href="#">@fab3dcreation</a></p>
+    </div>
+    <div class="container" style="padding:12px; display:flex; justify-content:flex-end">
+      <button class="btn" onclick="document.getElementById('contact').close()">Fermer</button>
+    </div>
+  </dialog>
+
+  <script>
+    // Petites données de démo (remplace par tes vrais liens/images)
+    const PRODUCTS = [
+      { id:"fig-leonard", title:"Figurine style LEGO — Académicien", price:29.90, desc:"Version peinte main, PLA premium. Options couleur disponibles.", img:"https://picsum.photos/seed/lego/800/600", buy:"#"},
+      { id:"cadre-bebe", title:"Plaque souvenir naissance (lithophanie)", price:39.90, desc:"Photo en lithophanie + rétroéclairage LED USB-C. Personnalisation prénom/date.", img:"https://picsum.photos/seed/litho/800/600", buy:"#"},
+      { id:"organiseur-rs", title:"Boîte organiseur médicaments style RS", price:24.90, desc:"14 compartiments, couvercle coulissant, personnalisable.", img:"https://picsum.photos/seed/rsbox/800/600", buy:"#"}
+    ];
+
+    function euro(n){return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n)}
+    function card(p){
+      const el = document.createElement('div');
+      el.className = 'card';
+      el.innerHTML = `
+        <div class="thumb" style="background-image:url('${p.img}')"></div>
+        <div class="content">
+          <div class="title">${p.title}</div>
+          <p class="desc">${p.desc}</p>
+          <div class="meta">
+            <div class="price">${euro(p.price)}</div>
+            <a class="btn btn-accent" href="${p.buy}" target="_blank" rel="noreferrer">Acheter</a>
+          </div>
+        </div>`;
+      return el;
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const wrap = document.getElementById('products'); PRODUCTS.forEach(p=>wrap.appendChild(card(p)));
+  </script>
 </body>
 </html>
-
