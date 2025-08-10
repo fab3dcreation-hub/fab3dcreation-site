@@ -90,13 +90,14 @@
     }
     .mast-img {
       width: 100%;
-      height: auto;
+      height: clamp(260px, 36vw, 640px);
       max-height: 650px;
       object-fit: cover;
+      object-position: 50% 75%;
       display: block;
     }
-    @media (max-width: 960px) { .mast-img { max-height: 320px; } }
-    @media (max-width: 640px) { .mast-img { max-height: 240px; } }
+    @media (max-width: 960px) { .mast-img{ height: clamp(220px, 42vw, 420px); object-position: 50% 70%; } }
+    @media (max-width: 640px) { .mast-img{ height: clamp(180px, 48vw, 320px); object-position: 50% 65%; } }
 
     /* Bloc texte */
     .hero {
