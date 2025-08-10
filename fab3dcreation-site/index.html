@@ -91,6 +91,33 @@
       .brand h1{font-size:16px}
       .nav-cta{width:100%;justify-content:flex-end}
     }
+    /* ===== Header compact sur mobile ===== */
+@media (max-width: 640px) {
+  header .nav { padding: 10px 0; gap: 8px; flex-wrap: wrap; }
+
+  .logo { width: 28px; height: 28px; border-radius: 10px; }
+  .brand h1 { font-size: 18px; margin: 0; }
+
+  .btn { 
+    padding: 8px 12px; 
+    font-size: 14px; 
+    border-radius: 10px;
+  }
+  .btn-accent { font-weight: 700; }
+
+  .cta { display: flex; gap: 8px; align-items: center; }
+}
+
+@media (max-width: 420px) {
+  .brand h1 { font-size: 16px; }
+  .cta { 
+    width: 100%;
+    margin-top: 6px;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+  .btn { padding: 7px 10px; font-size: 13px; }
+}
   </style>
 </head>
 <body>
