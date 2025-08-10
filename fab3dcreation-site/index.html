@@ -163,23 +163,41 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-  <script>
-  // Ouvrir la modale quand on clique sur un élément ayant data-open="how"
-  document.querySelectorAll('[data-open]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const id = btn.getAttribute('data-open');
+  
+ <script>
+  // Ouvre la modale si on clique sur un élément [data-open="id"]
+  document.addEventListener('click', function (e) {
+    const openBtn = e.target.closest('[data-open]');
+    if (openBtn) {
+      e.preventDefault();
+      const id = openBtn.getAttribute('data-open');
       const dlg = document.getElementById(id);
-      if (dlg?.showModal) dlg.showModal();
-    });
-  });
+      if (!dlg) return;
 
-  // Fermer la modale sur les éléments data-close
-  document.querySelectorAll('[data-close]').forEach(btn=>{
-    btn.addEventListener('click', ()=> {
-      const dlg = btn.closest('dialog');
-      dlg?.close();
-    });
+      if (typeof dlg.showModal === 'function') {
+        dlg.showModal();
+      } else {
+        // Fallback vieux navigateurs (pas de showModal)
+        dlg.setAttribute('open', '');
+      }
+    }
+
+    // Ferme la modale si on clique sur un élément [data-close]
+    const closeBtn = e.target.closest('[data-close]');
+    if (closeBtn) {
+      e.preventDefault();
+      const dlg = closeBtn.closest('dialog');
+      if (!dlg) return;
+
+      if (typeof dlg.close === 'function') {
+        dlg.close();
+      } else {
+        // Fallback vieux navigateurs
+        dlg.removeAttribute('open');
+      }
+    }
   });
 </script>
+
 </body>
 </html>
