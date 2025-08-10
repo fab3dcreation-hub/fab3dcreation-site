@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <link rel="preload" as="image" href="Banniere.jpg" imagesrcset="Banniere_1920.jpg 1920w, Banniere.jpg 2560w" imagesizes="100vw" fetchpriority="high">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -79,25 +80,51 @@
       color: #000;
     }
 
-    /* Bannière plein écran */
-    .mast {
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      width: 100vw;
-    }
-    .mast-img {
-      width: 100%;
-      height: clamp(260px, 36vw, 640px);
-      max-height: 650px;
-      object-fit: cover;
-      object-position: 50% 75%;
-      display: block;
-    }
-    @media (max-width: 960px) { .mast-img{ height: clamp(220px, 42vw, 420px); object-position: 50% 70%; } }
-    @media (max-width: 640px) { .mast-img{ height: clamp(180px, 48vw, 320px); object-position: 50% 65%; } }
+    /* —— Bannière plein écran optimisée —— */
+:root{
+  /* réglage fin de cadrage vertical de l'image (0% = haut, 100% = bas) */
+  --banner-pos-y: 78%;
+  /* hauteur responsive min / préférée / max */
+  --banner-h: clamp(260px, 36vw, 640px);
+}
+
+/* bannière sur toute la largeur, hors container */
+.mast{
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: clip;
+}
+
+.mast picture, .mast-img{
+  display: block;
+  width: 100%;
+  height: var(--banner-h);
+}
+
+.mast-img{
+  object-fit: cover;
+  object-position: 50% var(--banner-pos-y);
+  /* anti clignotement pendant le chargement */
+  background: #0b0b10;
+}
+
+/* tailles adaptatives */
+@media (max-width: 960px){
+  :root{ --banner-h: clamp(220px, 42vw, 420px); --banner-pos-y: 72%; }
+}
+@media (max-width: 640px){
+  :root{ --banner-h: clamp(180px, 48vw, 320px); --banner-pos-y: 68%; }
+}
+
+/* accessibilité : éviter les animations si préférence utilisateur */
+@media (prefers-reduced-motion: reduce){
+  .mast-img{ transition: none; }
+}
+
 
     /* Bloc texte */
     .hero {
@@ -139,8 +166,19 @@
 
   <main class="container">
     <!-- Bannière -->
-    <section class="mast">
-      <img src="Banniere.jpg" alt="Fab3DCréation — bannière" class="mast-img" loading="eager" decoding="async">
+    <section class="mast" aria-label="Bannière Fab3DCréation">
+  <picture>
+    <!-- version moderne si tu ajoutes un WebP -->
+    <source srcset="Banniere_1920.webp 1920w, Banniere.webp 2560w" type="image/webp" sizes="100vw">
+    <!-- fallback JPEG -->
+    <source srcset="Banniere_1920.jpg 1920w, Banniere.jpg 2560w" type="image/jpeg" sizes="100vw">
+    <img
+      src="Banniere.jpg"
+      alt="Logo Fab3D, imprimantes et bobines — Fab3DCréation"
+      class="mast-img"
+      width="2560" height="640"
+      loading="eager" decoding="async" fetchpriority="high">
+  </picture>
     </section>
 
     <!-- Texte -->
