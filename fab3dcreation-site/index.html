@@ -124,6 +124,45 @@
   }
   .btn { padding: 7px 10px; font-size: 13px; }
 }
+    /* === Compactage sous la bannière (mobile) === */
+@media (max-width: 640px) {
+
+  /* la section qui contient bannière + texte */
+  .hero{
+    /* si la bannière et le texte sont empilés, on resserre l'écart */
+    gap: 10px;
+    row-gap: 10px;
+    padding-top: 6px;
+    padding-bottom: 0;
+  }
+
+  /* bannière (au cas où un margin se glisse) */
+  .mast,
+  .mast-img{
+    margin-bottom: 0 !important;
+    display: block;
+  }
+
+  /* bloc texte sous la bannière */
+  .copy{
+    padding-top: 6px;
+    padding-bottom: 0;
+  }
+
+  /* Titre principal */
+  .copy h1,
+  .copy h2{
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    line-height: 1.2;
+  }
+
+  /* Sous-texte d’intro */
+  .copy p,
+  .copy .sub{
+    margin-top: 0 !important;
+  }
+}
   </style>
 </head>
 <body>
