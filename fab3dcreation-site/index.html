@@ -1,39 +1,236 @@
-/* === Compactage sous la bannière (mobile) === */
-@media (max-width: 640px) {
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fab3DCréation — Boutique</title>
+  <meta name="description" content="Boutique officielle Fab3DCréation : figurines, lithophanies et objets 3D personnalisés imprimés en France." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://fab3dcreation-site.netlify.app/" />
 
-  /* la section qui contient bannière + texte */
-  .hero{
-    /* si la bannière et le texte sont empilés, on resserre l'écart */
-    gap: 10px;
-    row-gap: 10px;
-    padding-top: 6px;
-    padding-bottom: 0;
-  }
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fab3dcreation-site.netlify.app/" />
+  <meta property="og:title" content="Fab3DCréation — Boutique 3D, figurines & objets personnalisés" />
+  <meta property="og:description" content="Créations 3D originales imprimées en France : figurines, lithophanies, cadeaux personnalisés. Paiement sécurisé." />
+  <meta property="og:image" content="https://fab3dcreation-site.netlify.app/images/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fab3DCréation — Boutique 3D" />
+  <meta name="twitter:description" content="Figurines & objets 3D personnalisés imprimés en France." />
+  <meta name="twitter:image" content="https://fab3dcreation-site.netlify.app/images/og-cover.jpg" />
 
-  /* bannière (au cas où un margin se glisse) */
-  .mast,
-  .mast-img{
-    margin-bottom: 0 !important;
-    display: block;
-  }
+  <style>
+    :root{
+      --bg:#0b0c10; --panel:#0f1116; --muted:#8a90a2; --text:#e8ecf1;
+      --accent:#6ee7b7; --accent2:#60a5fa; --radius:18px;
+      /* hauteurs de bannière */
+      --hero-h-desktop: 56vh;
+      --hero-h-mobile: 28vh;
+    }
 
-  /* bloc texte sous la bannière */
-  .copy{
-    padding-top: 6px;
-    padding-bottom: 0;
-  }
+    /* Reset / base */
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0a0b0e, #0b0c10 40%);
+      color: var(--text);
+    }
+    a{color:inherit;text-decoration:none}
 
-  /* Titre principal */
-  .copy h1,
-  .copy h2{
-    margin-top: 0 !important;
-    margin-bottom: 8px !important;
-    line-height: 1.2;
-  }
+    .container{max-width:1100px;margin:0 auto;padding:20px}
 
-  /* Sous-texte d’intro */
-  .copy p,
-  .copy .sub{
-    margin-top: 0 !important;
-  }
-}
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:40;
+      background: rgba(10,11,14,.65);
+      backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 0;
+    }
+    .brand{display:flex; align-items:center; gap:10px}
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    .brand h1{margin:0; font-size:18px; white-space:nowrap}
+
+    .cta{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      padding:10px 14px; border-radius:12px; font-weight:700;
+      border:1px solid rgba(255,255,255,.12); background:#10131a; color:var(--text);
+      cursor:pointer;
+    }
+    .btn-accent{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border:none; color:#0a0b0e;
+    }
+
+    /* Hero (bannière + texte) */
+    .hero{display:grid; gap:18px}
+    .mast{
+      width:100%;
+      height: var(--hero-h-desktop);
+      overflow:hidden; border-bottom:1px solid rgba(255,255,255,.06);
+      background:#0b0c10;
+    }
+    .mast-img{
+      width:100%; height:100%;
+      object-fit:cover; object-position:center;
+      display:block;
+    }
+
+    .copy{max-width:1100px; margin:0 auto; padding-top:4px}
+    .copy h2{margin:0 0 10px; font-size:36px; line-height:1.1}
+    .copy .sub{color:var(--muted); font-size:16px; margin:0 0 14px}
+
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin:12px 0 16px}
+    .badge{
+      font-size:12px; font-weight:800; color:#0b0c10;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      padding:8px 10px; border-radius:999px;
+    }
+
+    .note{font-size:12px; color:var(--muted); display:flex; align-items:center; gap:6px}
+    .note:before{content:"⚠️"}
+
+    /* Section produits (placeholder) */
+    .section{margin:26px 0}
+    .section h3{margin:0 0 10px; font-size:22px}
+
+    /* Footer */
+    footer{margin:30px 0 10px; color:var(--muted); font-size:13px}
+
+    /* --- Mobile tweaks --- */
+    @media (max-width: 960px){
+      .copy h2{font-size:30px}
+    }
+    @media (max-width: 640px){
+      .mast{height: var(--hero-h-mobile)}
+      .hero{gap:10px; row-gap:10px; padding-bottom:0}
+      .copy{padding-top:6px}
+      .copy h2{margin-bottom:8px; line-height:1.2}
+      .copy .sub{margin-top:0}
+      .logo{width:28px; height:28px; border-radius:10px}
+      .brand h1{font-size:16px}
+      .btn{padding:8px 12px; font-size:14px; border-radius:10px}
+      .cta{gap:8px; align-items:center}
+    }
+    @media (max-width: 420px){
+      .brand h1{font-size:15px}
+      .btn{padding:7px 10px; font-size:13px}
+      .cta{width:100%; justify-content:flex-start; gap:6px}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Fab3DCréation</h1>
+      </div>
+      <div class="cta">
+        <a href="#catalogue" class="btn btn-accent">Catalogue</a>
+        <button class="btn" onclick="document.getElementById('contact').showModal()">Contact</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Bannière full width -->
+    <section class="hero">
+      <div class="mast" aria-label="Bannière Fab3D">
+        <picture>
+          <!-- Si tu ajoutes Banniere.webp à la racine, il sera pris en priorité -->
+          <source type="image/webp" srcset="Banniere.webp">
+          <img class="mast-img" src="Banniere.jpg" alt="Fab3DCréation — bannière">
+        </picture>
+      </div>
+
+      <!-- Bloc texte -->
+      <div class="copy container">
+        <h2>Créations 3D originales, prêtes à commander</h2>
+        <p class="sub">
+          Figurines, accessoires et objets personnalisés imprimés en France.
+          Qualité soignée, délais rapides, service direct avec le créateur.
+        </p>
+
+        <div class="badges">
+          <span class="badge">Imprimé en France 🇫🇷</span>
+          <span class="badge">Paiement sécurisé</span>
+          <span class="badge">Sur-mesure possible</span>
+        </div>
+
+        <div class="cta">
+          <a href="#catalogue" class="btn btn-accent">Voir le catalogue</a>
+          <button class="btn" onclick="document.getElementById('how').showModal()">Comment commander ?</button>
+        </div>
+
+        <p class="note">Pas de fichiers STL, uniquement la vente de produits/prestations.</p>
+      </div>
+    </section>
+
+    <!-- Produits -->
+    <section id="catalogue" class="section container">
+      <h3>Produits en vedette</h3>
+      <!-- Tu pourras insérer ici ta grille produits -->
+      <p style="color:var(--muted)">La liste des produits arrive bientôt…</p>
+    </section>
+
+    <footer class="container">
+      © <span id="year"></span> Fab3DCréation — Tous droits réservés ·
+      <a href="mailto:contact@exemple.com">contact@exemple.com</a>
+    </footer>
+  </main>
+
+  <!-- Dialogs -->
+  <dialog id="how">
+    <div style="padding:18px;border-bottom:1px solid rgba(255,255,255,.06)">
+      <h3 style="margin:0 0 6px">Comment commander</h3>
+      <ol style="margin:8px 0 0 18px; line-height:1.6; color:#8a90a2">
+        <li>Choisissez un produit et cliquez sur <strong>Acheter</strong>.</li>
+        <li>Paiement sur une page sécurisée (Stripe/Etsy/PayPal).</li>
+        <li>Indiquez vos personnalisations (couleur, taille...).</li>
+      </ol>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end;padding:14px">
+      <button class="btn" onclick="document.getElementById('how').close()">Fermer</button>
+    </div>
+  </dialog>
+
+  <dialog id="contact">
+    <div style="padding:18px;border-bottom:1px solid rgba(255,255,255,.06)">
+      <h3 style="margin:0 0 6px">Contact</h3>
+      <p style="margin:6px 0 0; color:#8a90a2">
+        Email : <a href="mailto:contact@exemple.com">contact@exemple.com</a> —
+        Instagram : <a href="#" rel="noreferrer">@fab3dcreation</a>
+      </p>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end;padding:14px">
+      <button class="btn" onclick="document.getElementById('contact').close()">Fermer</button>
+    </div>
+  </dialog>
+
+  <script>
+    // année footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Données structurées de base
+    (function(){
+      const data = [
+        {"@context":"https://schema.org","@type":"Organization","name":"Fab3DCréation","url":location.origin},
+        {"@context":"https://schema.org","@type":"WebSite","name":"Fab3DCréation","url":location.origin}
+      ];
+      const s = document.createElement('script');
+      s.type='application/ld+json'; s.textContent = JSON.stringify(data);
+      document.head.appendChild(s);
+    })();
+  </script>
+</body>
+</html>
