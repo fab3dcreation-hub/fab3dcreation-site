@@ -5,19 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Fab3DCréation — Boutique</title>
 <meta name="description" content="Créations 3D originales : produits standards et personnalisés, imprimés en France." />
-
 <style>
   :root{
     --bg:#0b0c10; --panel:#0f1116; --text:#e8ecf1; --muted:#9aa3b2;
-    --accent:#6ee7b7; --accent2:#60a5fa; --radius:16px;
-    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --accent:#6ee7b7; --accent2:#60a5fa; --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35);
   }
   *{box-sizing:border-box}
   html,body{margin:0;background:linear-gradient(180deg,#0a0b0e,#0b0c10 40%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%;height:auto}
 
-  /* Header */
   header{position:sticky;top:0;z-index:40;background:rgba(10,11,14,.65);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
   .wrap{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
   .brand{display:flex;align-items:center;gap:10px}
@@ -28,11 +25,9 @@
   .btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.25)}
   .btn-accent{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#081013}
 
-  /* Bannière */
   .mast{width:100%;height:clamp(240px,36vw,560px);overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06);background:#0a0b0e}
   .mast img{width:100%;height:100%;object-fit:cover;object-position:50% 76%}
 
-  /* Intro */
   .container{max-width:1120px;margin:0 auto;padding:22px}
   .intro{padding-top:12px}
   .intro h2{margin:0 0 8px;font-size:32px;line-height:1.1}
@@ -43,7 +38,6 @@
   .badge:hover{transform:scale(1.06);box-shadow:0 4px 10px rgba(0,0,0,.3)}
   .ctas{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 
-  /* Sections produits */
   section.block{margin:28px 0}
   section.block h3{margin:0 0 12px;font-size:22px}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -55,26 +49,8 @@
   .meta{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
   .price{font-weight:900;font-size:18px}
 
-  /* Dialogs */
-  dialog{border:none;border-radius:14px;max-width:560px;width:calc(100% - 24px);padding:0;background:#0f1116;color:var(--text)}
-  dialog::backdrop{background:rgba(0,0,0,.55)}
-  .dlg-body{padding:18px;border-bottom:1px solid rgba(255,255,255,.06)}
-  .dlg-actions{display:flex;gap:10px;justify-content:flex-end;padding:14px}
-  .btn-plain{background:#10131a;border:1px solid rgba(255,255,255,.1)}
-
-  /* Form devis (Netlify) */
-  form.quote{display:block}
-  form.quote input, form.quote textarea{
-    width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);
-    background:#10131a;color:#fff
-  }
-  .preview{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-  .preview img{width:96px;height:96px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,.12)}
-  .err{font-size:12px;color:#fca5a5}
-
   footer{border-top:1px solid rgba(255,255,255,.06);margin-top:26px;padding:18px 22px;color:var(--muted);font-size:13px}
 
-  /* Responsive */
   @media (max-width: 960px){ .grid{grid-template-columns:1fr 1fr} }
   @media (max-width: 640px){
     .brand h1{font-size:16px}
@@ -95,17 +71,15 @@
     <nav class="nav">
       <a class="btn" href="#standards">Standards</a>
       <a class="btn" href="#custom">Personnalisés</a>
-      <a class="btn btn-accent" href="#devis">Devis</a>
+      <a class="btn btn-accent" href="devis.html">Demander un devis</a>
     </nav>
   </div>
 </header>
 
-<!-- Bannière -->
 <div class="mast">
   <img src="Banniere.jpg" alt="Bannière Fab3DCréation">
 </div>
 
-<!-- Intro -->
 <section class="container intro">
   <h2>Créations 3D originales, prêtes à commander</h2>
   <p class="sub">Imprimé en France · Qualité soignée · Délais rapides · Service direct avec le créateur</p>
@@ -117,7 +91,7 @@
     </div>
     <div class="ctas">
       <a href="#standards" class="btn btn-accent">Voir les produits</a>
-      <a href="#devis" class="btn">Demander un devis</a>
+      <a href="devis.html" class="btn">Demander un devis</a>
     </div>
   </div>
 </section>
@@ -184,7 +158,7 @@
         <p class="desc">Personnalisez visage, couleurs, accessoires.</p>
         <div class="meta">
           <div class="price">à partir de 29,90 €</div>
-          <a class="btn btn-accent" href="#devis">Demander un devis</a>
+          <a class="btn btn-accent" href="devis.html?p=Mini-figurine%20style%20LEGO%20—%20perso">Demander un devis</a>
         </div>
       </div>
     </article>
@@ -196,90 +170,16 @@
         <p class="desc">Votre photo transformée en relief, avec support.</p>
         <div class="meta">
           <div class="price">à partir de 24,90 €</div>
-          <a class="btn btn-accent" href="#devis">Demander un devis</a>
+          <a class="btn btn-accent" href="devis.html?p=Lithophanie%20photo">Demander un devis</a>
         </div>
       </div>
     </article>
   </div>
 </section>
 
-<!-- FORMULAIRE DEVIS (Netlify Forms) -->
-<section id="devis" class="container block">
-  <h3>Demander un devis</h3>
-  <form name="quote" method="POST" data-netlify="true" enctype="multipart/form-data" class="quote">
-    <!-- requis par Netlify -->
-    <input type="hidden" name="form-name" value="quote">
-    <div style="display:grid;gap:10px">
-      <input type="text" name="Nom" placeholder="Votre nom" required />
-      <input type="email" name="Email" placeholder="Votre email" required />
-      <textarea name="Message" rows="5" placeholder="Votre projet (taille, couleurs, texte…)" required></textarea>
-    </div>
-
-    <div style="margin-top:10px">
-      <label class="btn" for="qPhotos" style="cursor:pointer;display:inline-block">Ajouter des photos (max 3)</label>
-      <input id="qPhotos" name="Photos" type="file" accept="image/*" multiple style="display:none">
-      <div id="qPreviews" class="preview"></div>
-      <p class="muted" style="color:var(--muted);margin:6px 0 0">Formats JPG/PNG/WebP — 5 Mo max par photo.</p>
-    </div>
-
-    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-      <button class="btn btn-accent" id="sendQuote" type="submit">Envoyer la demande</button>
-      <a class="btn" href="#custom">Retour aux personnalisés</a>
-    </div>
-  </form>
-</section>
-
 <footer>
   <div class="container">© <span id="year"></span> Fab3DCréation — Tous droits réservés</div>
 </footer>
-
-<script>
-  // année
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Devis : preview + limites upload (max 3 fichiers, 5 Mo chacun)
-  (function(){
-    const MAX_FILES = 3, MAX_SIZE = 5 * 1024 * 1024;
-    const input = document.getElementById('qPhotos');
-    const previews = document.getElementById('qPreviews');
-
-    input?.addEventListener('change', ()=>{
-      previews.innerHTML='';
-      const files = Array.from(input.files || []);
-      const picked = files.slice(0, MAX_FILES);
-
-      if(files.length > MAX_FILES){
-        const warn = document.createElement('div');
-        warn.className = 'err';
-        warn.textContent = `Maximum ${MAX_FILES} photos.`;
-        previews.appendChild(warn);
-      }
-
-      picked.forEach(f=>{
-        if(f.size > MAX_SIZE){
-          const err = document.createElement('div');
-          err.className = 'err';
-          err.textContent = `${f.name} dépasse 5 Mo — ignorée.`;
-          previews.appendChild(err);
-          return;
-        }
-        const url = URL.createObjectURL(f);
-        const img = document.createElement('img');
-        img.src = url;
-        previews.appendChild(img);
-      });
-
-      // Limiter réellement les fichiers soumis
-      if (input.files && input.files.length){
-        const valid = picked.filter(f=>f.size<=MAX_SIZE);
-        const dt = new DataTransfer();
-        valid.forEach(f=>dt.items.add(f));
-        input.files = dt.files;
-      }
-    });
-  })();
-</script>
-
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
-
