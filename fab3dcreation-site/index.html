@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Fab3DCréation — Boutique</title>
   <meta name="description" content="Boutique officielle Fab3DCréation : figurines, lithophanies et objets 3D personnalisés imprimés en France." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://fab3dcreation-site.netlify.app/" />
-  <meta name="google-site-verification" content="" />
 
-  <!-- Open Graph / Twitter -->
+  <!-- Social -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fab3dcreation-site.netlify.app/" />
   <meta property="og:title" content="Fab3DCréation — Boutique 3D, figurines & objets personnalisés" />
@@ -22,7 +22,7 @@
       --bg:#0b0c10; --panel:#0f1116; --muted:#8a90a2; --text:#e8ecf1;
       --accent:#6ee7b7; --accent2:#60a5fa; --radius:18px;
 
-      /* Hauteur de bannière (tunable) */
+      /* hauteurs de bannière */
       --hero-h-desktop: 56vh;
       --hero-h-mobile: 28vh;
     }
@@ -31,7 +31,6 @@
     html,body{margin:0;background:linear-gradient(180deg,#0a0b0e,#0b0c10 40%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;display:block}
-
     .container{max-width:1100px;margin:0 auto;padding:20px}
 
     /* Header */
@@ -39,26 +38,15 @@
     .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0}
     .brand{display:flex;align-items:center;gap:10px}
     .logo{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
-    .brand h1{font-size:18px;white-space:nowrap;margin:0}
+    .brand h1{margin:0;font-size:18px;white-space:nowrap}
     .nav-cta{display:flex;gap:10px;flex-wrap:wrap}
-
     .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:#0f1116;color:var(--text);font-weight:700;cursor:pointer}
     .btn-accent{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#081013}
 
     /* Hero (bannière + texte) */
     .hero{display:grid;gap:18px;margin:0}
-    .mast{
-      width:100%;
-      height:var(--hero-h-desktop);
-      overflow:hidden;
-      border-bottom:1px solid rgba(255,255,255,.06);
-      background:#0b0c10;
-    }
-    .mast-img{
-      width:100%; height:100%;
-      object-fit:cover; object-position:center;
-      display:block;
-    }
+    .mast{width:100%;height:var(--hero-h-desktop);overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06);background:#0b0c10}
+    .mast-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 
     .copy{max-width:1100px;margin:0 auto;padding-top:4px}
     .copy h2{margin:0 0 10px;font-size:36px;line-height:1.1}
@@ -69,13 +57,18 @@
     .note{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
     .note:before{content:"⚠️"}
 
-    /* Section produits placeholder */
     .section{margin:26px 0}
     .section h3{margin:0 0 10px;font-size:22px}
-
     footer{margin:30px 10px;color:var(--muted);font-size:13px}
 
-    /* Header compact & bannière + basse sur mobile */
+    /* Dialog */
+    dialog{border:none;border-radius:14px;max-width:560px;width:calc(100% - 24px);padding:0;background:var(--panel);color:var(--text)}
+    dialog::backdrop{background:rgba(0,0,0,.55)}
+    .dlg-body{padding:18px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .dlg-actions{display:flex;gap:10px;justify-content:flex-end;padding:14px}
+    .btn-plain{background:#10131a;border:1px solid rgba(255,255,255,.1)}
+
+    /* Mobile */
     @media (max-width: 640px){
       .brand h1{font-size:16px}
       .logo{width:28px;height:28px;border-radius:10px}
@@ -83,9 +76,8 @@
       .nav-cta{gap:8px}
 
       .mast{height:var(--hero-h-mobile)}
-      .hero{padding-bottom:5px} /* enlève l'espace sous la bannière */
+      .hero{padding-bottom:5px} /* réduit l'espace sous la bannière */
     }
-
     @media (max-width: 420px){
       .brand h1{font-size:15px}
       .btn{padding:7px 10px;font-size:13px}
@@ -108,14 +100,11 @@
   </header>
 
   <main>
-
     <!-- HERO -->
     <section class="hero">
       <div class="mast">
         <picture>
-          <!-- WebP prioritaire -->
           <source srcset="images/Banniere.webp" type="image/webp" />
-          <!-- Fallback JPG -->
           <img class="mast-img" src="images/Banniere.jpg" alt="Fab3DCréation — bannière" />
         </picture>
       </div>
@@ -135,7 +124,8 @@
 
         <div class="nav-cta">
           <a href="#catalogue" class="btn btn-accent">Voir le catalogue</a>
-          <a href="#how" class="btn">Comment commander ?</a>
+          <!-- Ouvre la modale -->
+          <a href="#how" class="btn" data-open="how">Comment commander ?</a>
         </div>
 
         <p class="note">Pas de fichiers STL, uniquement la vente de produits/prestations.</p>
@@ -145,7 +135,7 @@
     <!-- Produits -->
     <section id="catalogue" class="section container">
       <h3>Produits en vedette</h3>
-      <!-- Tu pourras insérer ici tes cartes produits -->
+      <!-- tes cartes produits arriveront ici -->
     </section>
 
     <!-- Contact -->
@@ -153,51 +143,53 @@
       <h3>Contact</h3>
       <p class="sub">Email : <a href="mailto:contact@exemple.com">contact@exemple.com</a></p>
     </section>
-
   </main>
 
   <footer class="container">
     © <span id="year"></span> Fab3DCréation — Tous droits réservés
   </footer>
 
+  <!-- ===== Modale « Comment commander » ===== -->
+  <dialog id="how">
+    <div class="dlg-body">
+      <h3 style="margin:0 0 8px">Comment commander</h3>
+      <ol style="margin:8px 0 0 18px; line-height:1.6; color:#8a90a2">
+        <li>Choisissez un produit puis cliquez sur <strong>Acheter</strong> ou <strong>Devis</strong>.</li>
+        <li>Paiement sécurisé (Stripe/Etsy/PayPal) ou devis personnalisé.</li>
+        <li>Indiquez vos personnalisations (couleur, taille, texte…).</li>
+        <li>Suivi et envoi rapide depuis la France.</li>
+      </ol>
+    </div>
+    <div class="dlg-actions">
+      <button class="btn btn-plain" data-close>Fermer</button>
+      <a href="#catalogue" class="btn btn-accent" data-close>Voir le catalogue</a>
+    </div>
+  </dialog>
+
   <script>
+    // Année footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Ouvrir / fermer la modale via data-open / data-close
+    document.addEventListener('click', (e)=>{
+      const openBtn = e.target.closest('[data-open]');
+      if(openBtn){
+        e.preventDefault();
+        const id = openBtn.getAttribute('data-open');
+        const dlg = document.getElementById(id);
+        if(!dlg) return;
+        if(typeof dlg.showModal === 'function') dlg.showModal();
+        else dlg.setAttribute('open',''); // fallback vieux navigateurs
+      }
+      const closeBtn = e.target.closest('[data-close]');
+      if(closeBtn){
+        e.preventDefault();
+        const dlg = closeBtn.closest('dialog');
+        if(!dlg) return;
+        if(typeof dlg.close === 'function') dlg.close();
+        else dlg.removeAttribute('open');
+      }
+    });
   </script>
-  
- <script>
-  // Ouvre la modale si on clique sur un élément [data-open="id"]
-  document.addEventListener('click', function (e) {
-    const openBtn = e.target.closest('[data-open]');
-    if (openBtn) {
-      e.preventDefault();
-      const id = openBtn.getAttribute('data-open');
-      const dlg = document.getElementById(id);
-      if (!dlg) return;
-
-      if (typeof dlg.showModal === 'function') {
-        dlg.showModal();
-      } else {
-        // Fallback vieux navigateurs (pas de showModal)
-        dlg.setAttribute('open', '');
-      }
-    }
-
-    // Ferme la modale si on clique sur un élément [data-close]
-    const closeBtn = e.target.closest('[data-close]');
-    if (closeBtn) {
-      e.preventDefault();
-      const dlg = closeBtn.closest('dialog');
-      if (!dlg) return;
-
-      if (typeof dlg.close === 'function') {
-        dlg.close();
-      } else {
-        // Fallback vieux navigateurs
-        dlg.removeAttribute('open');
-      }
-    }
-  });
-</script>
-
 </body>
 </html>
