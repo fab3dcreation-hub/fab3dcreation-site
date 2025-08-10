@@ -1,92 +1,285 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fab3DCréation</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8f8f8; }
-    header img { width: 100%; height: auto; display:block; }
-    h1, h2 { text-align: center; }
-    .container { width:90%; max-width:1200px; margin: auto; }
-    .products { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
-    .product { background:white; padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); text-align:center; }
-    .product img { width:100%; border-radius:10px; height:200px; object-fit:cover; }
-    .price { font-size:1.2em; color:#2c3e50; margin:10px 0; }
-    .btn { display:inline-block; background:#ff6600; color:white; padding:10px 15px; border:none; border-radius:5px; text-decoration:none; margin:5px 2px; cursor:pointer; }
-    .btn:hover { background:#e65c00; }
-    form { background:white; padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
-    form input, form textarea, form select { width:100%; padding:8px; margin:8px 0; border-radius:5px; border:1px solid #ccc; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fab3DCréation — Boutique</title>
+<meta name="description" content="Créations 3D originales : produits standards et personnalisés, imprimés en France." />
+
+<style>
+  :root{
+    --bg:#0b0c10; --panel:#0f1116; --text:#e8ecf1; --muted:#9aa3b2;
+    --accent:#6ee7b7; --accent2:#60a5fa; --radius:16px;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:linear-gradient(180deg,#0a0b0e,#0b0c10 40%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%;height:auto}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:40;background:rgba(10,11,14,.65);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .wrap{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px}
+  .logo{width:32px;height:32px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+  .brand h1{margin:0;font-size:18px;letter-spacing:.2px}
+  .nav{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:var(--text);font-weight:700;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.25)}
+  .btn-accent{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#081013}
+
+  /* Bannière */
+  .mast{width:100%;height:clamp(240px,36vw,560px);overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06);background:#0a0b0e}
+  .mast img{width:100%;height:100%;object-fit:cover;object-position:50% 76%}
+
+  /* Intro */
+  .container{max-width:1120px;margin:0 auto;padding:22px}
+  .intro{padding-top:12px}
+  .intro h2{margin:0 0 8px;font-size:32px;line-height:1.1}
+  .intro p.sub{margin:0;color:var(--muted)}
+  .cta-block{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:14px}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:14px 0 48px}
+  .badge{font-size:12px;font-weight:800;color:#0b0c10;padding:8px 10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:1px solid rgba(255,255,255,.2);transition:all .3s ease}
+  .badge:hover{transform:scale(1.06);box-shadow:0 4px 10px rgba(0,0,0,.3)}
+  .ctas{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+
+  /* Sections produits */
+  section.block{margin:28px 0}
+  section.block h3{margin:0 0 12px;font-size:22px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:linear-gradient(180deg,#0f1116,#0c0d11);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .thumb{aspect-ratio:4/3;background:#0b0c10 center/cover no-repeat}
+  .content{padding:16px;display:flex;flex-direction:column;gap:8px}
+  .title{margin:0;font-size:18px;font-weight:800}
+  .desc{margin:0;color:var(--muted);font-size:14px;min-height:38px}
+  .meta{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+  .price{font-weight:900;font-size:18px}
+
+  /* Dialogs */
+  dialog{border:none;border-radius:14px;max-width:560px;width:calc(100% - 24px);padding:0;background:#0f1116;color:var(--text)}
+  dialog::backdrop{background:rgba(0,0,0,.55)}
+  .dlg-body{padding:18px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .dlg-actions{display:flex;gap:10px;justify-content:flex-end;padding:14px}
+  .btn-plain{background:#10131a;border:1px solid rgba(255,255,255,.1)}
+
+  /* Form devis (Netlify) */
+  form.quote{display:block}
+  form.quote input, form.quote textarea{
+    width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);
+    background:#10131a;color:#fff
+  }
+  .preview{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .preview img{width:96px;height:96px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,.12)}
+  .err{font-size:12px;color:#fca5a5}
+
+  footer{border-top:1px solid rgba(255,255,255,.06);margin-top:26px;padding:18px 22px;color:var(--muted);font-size:13px}
+
+  /* Responsive */
+  @media (max-width: 960px){ .grid{grid-template-columns:1fr 1fr} }
+  @media (max-width: 640px){
+    .brand h1{font-size:16px}
+    .logo{width:28px;height:28px;border-radius:10px}
+    .btn{padding:8px 12px;font-size:14px;border-radius:10px}
+    .nav{gap:8px}
+    .mast{height:clamp(200px,48vw,420px)}
+    .intro h2{font-size:26px}
+    .grid{grid-template-columns:1fr}
+  }
+</style>
 </head>
 <body>
 
 <header>
-  <img src="banniere.webp" alt="Fab3DCréation Bannière">
+  <div class="wrap">
+    <div class="brand"><div class="logo" aria-hidden="true"></div><h1>Fab3DCréation</h1></div>
+    <nav class="nav">
+      <a class="btn" href="#standards">Standards</a>
+      <a class="btn" href="#custom">Personnalisés</a>
+      <a class="btn btn-accent" href="#devis">Devis</a>
+    </nav>
+  </div>
 </header>
 
-<section class="container">
-  <h1>Produits standards</h1>
-  <div class="products">
-    <div class="product">
-      <img src="produit1.jpg" alt="Produit 1">
-      <h3>Support téléphone</h3>
-      <div class="price">15€</div>
-      <button class="btn">Acheter (Main propre)</button>
-      <button class="btn">Acheter (Envoi)</button>
+<!-- Bannière -->
+<div class="mast">
+  <img src="Banniere.jpg" alt="Bannière Fab3DCréation">
+</div>
+
+<!-- Intro -->
+<section class="container intro">
+  <h2>Créations 3D originales, prêtes à commander</h2>
+  <p class="sub">Imprimé en France · Qualité soignée · Délais rapides · Service direct avec le créateur</p>
+  <div class="cta-block">
+    <div class="badges">
+      <span class="badge">Imprimé en France 🇫🇷</span>
+      <span class="badge">Paiement sécurisé</span>
+      <span class="badge">Sur-mesure possible</span>
     </div>
-    <div class="product">
-      <img src="produit2.jpg" alt="Produit 2">
-      <h3>Porte-clés personnalisé</h3>
-      <div class="price">10€</div>
-      <button class="btn">Acheter (Main propre)</button>
-      <button class="btn">Acheter (Envoi)</button>
-    </div>
-    <div class="product">
-      <img src="produit3.jpg" alt="Produit 3">
-      <h3>Boîte de rangement</h3>
-      <div class="price">20€</div>
-      <button class="btn">Acheter (Main propre)</button>
-      <button class="btn">Acheter (Envoi)</button>
+    <div class="ctas">
+      <a href="#standards" class="btn btn-accent">Voir les produits</a>
+      <a href="#devis" class="btn">Demander un devis</a>
     </div>
   </div>
 </section>
 
-<section class="container">
-  <h1>Produits personnalisés</h1>
-  <div class="products">
-    <div class="product">
-      <img src="lego.jpg" alt="LEGO personnalisé">
-      <h3>Figurine style LEGO</h3>
-      <div class="price">Sur devis</div>
-      <button class="btn" onclick="document.getElementById('form-devis').scrollIntoView({behavior: 'smooth'})">Demander un devis</button>
-    </div>
-    <div class="product">
-      <img src="lithophanie.jpg" alt="Lithophanie">
-      <h3>Cadre lithophanie</h3>
-      <div class="price">Sur devis</div>
-      <button class="btn" onclick="document.getElementById('form-devis').scrollIntoView({behavior: 'smooth'})">Demander un devis</button>
-    </div>
+<!-- PRODUITS STANDARDS -->
+<section id="standards" class="container block">
+  <h3>Produits standards</h3>
+  <div class="grid">
+    <article class="card">
+      <div class="thumb" style="background-image:url('produit1.jpg')"></div>
+      <div class="content">
+        <h4 class="title">Support téléphone minimal</h4>
+        <p class="desc">Stable, compact, compatible la plupart des smartphones.</p>
+        <div class="meta">
+          <div class="price">9,90 €</div>
+          <div style="display:flex;gap:8px">
+            <a class="btn" href="#" title="Remise en main propre">Main propre</a>
+            <a class="btn btn-accent" href="#" title="Achat avec envoi">Envoi</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb" style="background-image:url('produit2.jpg')"></div>
+      <div class="content">
+        <h4 class="title">Porte-clés 3D (lot de 2)</h4>
+        <p class="desc">Léger et solide, couleurs au choix.</p>
+        <div class="meta">
+          <div class="price">7,50 €</div>
+          <div style="display:flex;gap:8px">
+            <a class="btn" href="#" title="Remise en main propre">Main propre</a>
+            <a class="btn btn-accent" href="#" title="Achat avec envoi">Envoi</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb" style="background-image:url('produit3.jpg')"></div>
+      <div class="content">
+        <h4 class="title">Boîte cartes SD</h4>
+        <p class="desc">Rangez 12 cartes SD. Fermeture sûre.</p>
+        <div class="meta">
+          <div class="price">12,00 €</div>
+          <div style="display:flex;gap:8px">
+            <a class="btn" href="#" title="Remise en main propre">Main propre</a>
+            <a class="btn btn-accent" href="#" title="Achat avec envoi">Envoi</a>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
-<section class="container" id="form-devis">
-  <h2>Demande de devis</h2>
-  <form name="devis" method="POST" data-netlify="true" enctype="multipart/form-data">
-    <input type="hidden" name="form-name" value="devis">
-    <label>Nom :</label>
-    <input type="text" name="nom" required>
-    <label>Email :</label>
-    <input type="email" name="email" required>
-    <label>Description du projet :</label>
-    <textarea name="description" rows="5" required></textarea>
-    <label>Ajouter des images (max 3, 5Mo chacune) :</label>
-    <input type="file" name="image1" accept="image/*">
-    <input type="file" name="image2" accept="image/*">
-    <input type="file" name="image3" accept="image/*">
-    <button class="btn" type="submit">Envoyer la demande</button>
+<!-- PRODUITS PERSONNALISÉS -->
+<section id="custom" class="container block">
+  <h3>Produits personnalisés</h3>
+  <div class="grid">
+    <article class="card">
+      <div class="thumb" style="background-image:url('lego.jpg')"></div>
+      <div class="content">
+        <h4 class="title">Mini-figurine style LEGO — perso</h4>
+        <p class="desc">Personnalisez visage, couleurs, accessoires.</p>
+        <div class="meta">
+          <div class="price">à partir de 29,90 €</div>
+          <a class="btn btn-accent" href="#devis">Demander un devis</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb" style="background-image:url('cadre.jpg')"></div>
+      <div class="content">
+        <h4 class="title">Lithophanie photo</h4>
+        <p class="desc">Votre photo transformée en relief, avec support.</p>
+        <div class="meta">
+          <div class="price">à partir de 24,90 €</div>
+          <a class="btn btn-accent" href="#devis">Demander un devis</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- FORMULAIRE DEVIS (Netlify Forms) -->
+<section id="devis" class="container block">
+  <h3>Demander un devis</h3>
+  <form name="quote" method="POST" data-netlify="true" enctype="multipart/form-data" class="quote">
+    <!-- requis par Netlify -->
+    <input type="hidden" name="form-name" value="quote">
+    <div style="display:grid;gap:10px">
+      <input type="text" name="Nom" placeholder="Votre nom" required />
+      <input type="email" name="Email" placeholder="Votre email" required />
+      <textarea name="Message" rows="5" placeholder="Votre projet (taille, couleurs, texte…)" required></textarea>
+    </div>
+
+    <div style="margin-top:10px">
+      <label class="btn" for="qPhotos" style="cursor:pointer;display:inline-block">Ajouter des photos (max 3)</label>
+      <input id="qPhotos" name="Photos" type="file" accept="image/*" multiple style="display:none">
+      <div id="qPreviews" class="preview"></div>
+      <p class="muted" style="color:var(--muted);margin:6px 0 0">Formats JPG/PNG/WebP — 5 Mo max par photo.</p>
+    </div>
+
+    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-accent" id="sendQuote" type="submit">Envoyer la demande</button>
+      <a class="btn" href="#custom">Retour aux personnalisés</a>
+    </div>
   </form>
 </section>
 
+<footer>
+  <div class="container">© <span id="year"></span> Fab3DCréation — Tous droits réservés</div>
+</footer>
+
+<script>
+  // année
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Devis : preview + limites upload (max 3 fichiers, 5 Mo chacun)
+  (function(){
+    const MAX_FILES = 3, MAX_SIZE = 5 * 1024 * 1024;
+    const input = document.getElementById('qPhotos');
+    const previews = document.getElementById('qPreviews');
+
+    input?.addEventListener('change', ()=>{
+      previews.innerHTML='';
+      const files = Array.from(input.files || []);
+      const picked = files.slice(0, MAX_FILES);
+
+      if(files.length > MAX_FILES){
+        const warn = document.createElement('div');
+        warn.className = 'err';
+        warn.textContent = `Maximum ${MAX_FILES} photos.`;
+        previews.appendChild(warn);
+      }
+
+      picked.forEach(f=>{
+        if(f.size > MAX_SIZE){
+          const err = document.createElement('div');
+          err.className = 'err';
+          err.textContent = `${f.name} dépasse 5 Mo — ignorée.`;
+          previews.appendChild(err);
+          return;
+        }
+        const url = URL.createObjectURL(f);
+        const img = document.createElement('img');
+        img.src = url;
+        previews.appendChild(img);
+      });
+
+      // Limiter réellement les fichiers soumis
+      if (input.files && input.files.length){
+        const valid = picked.filter(f=>f.size<=MAX_SIZE);
+        const dt = new DataTransfer();
+        valid.forEach(f=>dt.items.add(f));
+        input.files = dt.files;
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>
+
