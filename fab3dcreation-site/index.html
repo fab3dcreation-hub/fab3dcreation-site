@@ -32,4 +32,61 @@
       <img src="produit1.jpg" alt="Produit 1">
       <h3>Support téléphone</h3>
       <div class="price">15€</div>
-      <button class="btn
+      <button class="btn">Acheter (Main propre)</button>
+      <button class="btn">Acheter (Envoi)</button>
+    </div>
+    <div class="product">
+      <img src="produit2.jpg" alt="Produit 2">
+      <h3>Porte-clés personnalisé</h3>
+      <div class="price">10€</div>
+      <button class="btn">Acheter (Main propre)</button>
+      <button class="btn">Acheter (Envoi)</button>
+    </div>
+    <div class="product">
+      <img src="produit3.jpg" alt="Produit 3">
+      <h3>Boîte de rangement</h3>
+      <div class="price">20€</div>
+      <button class="btn">Acheter (Main propre)</button>
+      <button class="btn">Acheter (Envoi)</button>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <h1>Produits personnalisés</h1>
+  <div class="products">
+    <div class="product">
+      <img src="lego.jpg" alt="LEGO personnalisé">
+      <h3>Figurine style LEGO</h3>
+      <div class="price">Sur devis</div>
+      <button class="btn" onclick="document.getElementById('form-devis').scrollIntoView({behavior: 'smooth'})">Demander un devis</button>
+    </div>
+    <div class="product">
+      <img src="lithophanie.jpg" alt="Lithophanie">
+      <h3>Cadre lithophanie</h3>
+      <div class="price">Sur devis</div>
+      <button class="btn" onclick="document.getElementById('form-devis').scrollIntoView({behavior: 'smooth'})">Demander un devis</button>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="form-devis">
+  <h2>Demande de devis</h2>
+  <form name="devis" method="POST" data-netlify="true" enctype="multipart/form-data">
+    <input type="hidden" name="form-name" value="devis">
+    <label>Nom :</label>
+    <input type="text" name="nom" required>
+    <label>Email :</label>
+    <input type="email" name="email" required>
+    <label>Description du projet :</label>
+    <textarea name="description" rows="5" required></textarea>
+    <label>Ajouter des images (max 3, 5Mo chacune) :</label>
+    <input type="file" name="image1" accept="image/*">
+    <input type="file" name="image2" accept="image/*">
+    <input type="file" name="image3" accept="image/*">
+    <button class="btn" type="submit">Envoyer la demande</button>
+  </form>
+</section>
+
+</body>
+</html>
