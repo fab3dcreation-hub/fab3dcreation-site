@@ -2,182 +2,119 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Décoration murale — Chouette nocturne | Fab3DCréation</title>
-  <meta name="description" content="Chouette nocturne murale imprimée en 3D avec LED intégrée. Finitions soignées, expédition rapide depuis la France. Idéale pour décorer votre intérieur." />
-  <meta property="og:type" content="product" />
-  <meta property="og:title" content="Décoration murale — Chouette nocturne" />
-  <meta property="og:description" content="Chouette nocturne murale imprimée en 3D avec LED intégrée. Finitions soignées, expédition rapide depuis la France." />
-  <meta property="og:image" content="https://fab3dcreation-site.netlify.app/images/chouette-cover.webp" />
-
-  <style>
-    :root{--bg:#0b0c10;--panel:#0f1116;--muted:#8a90a2;--text:#e8ecf1;--accent:#6ee7b7;--accent2:#60a5fa;--r:18px}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
-    a{color:inherit;text-decoration:none}
-
-    header{position:sticky;top:0;z-index:50;background:rgba(10,11,14,.6);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .container{max-width:1100px;margin:0 auto;padding:18px}
-    .nav{display:flex;justify-content:space-between;align-items:center}
-    .brand{display:flex;gap:10px;align-items:center}
-    .logo{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
-    .brand h1{margin:0;font-size:18px}
-
-    .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#10131a;color:var(--text);font-weight:600;cursor:pointer}
-    .btn-accent{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#0a0b0e}
-
-    .breadcrumbs{max-width:1100px;margin:10px auto 0;padding:0 18px;color:var(--muted);font-size:14px}
-    .breadcrumbs a{color:var(--muted)}
-
-    .wrap{max-width:1100px;margin:0 auto;padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
-    @media(max-width:860px){.wrap{grid-template-columns:1fr}}
-
-    .panel{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--r)}
-    .media{padding:12px}
-    .hero{width:100%;display:block;border-radius:14px;background:#0f1116}
-    .thumbs{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-    .thumbs img{width:72px;height:72px;border-radius:10px;object-fit:cover;border:2px solid transparent;cursor:pointer;transition:border .2s}
-    .thumbs img.active{border-color:var(--accent)}
-
-    h2{margin:0 0 10px}
-    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-    .badge{font-size:12px;color:#0a0b0e;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));padding:6px 10px;border-radius:999px}
-    .price{font-size:20px;font-weight:800;margin-top:10px}
-
-    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
-    @media(max-width:480px){.cta-row .btn,.cta-row .btn-accent{width:100%}}
-
-    .content{padding:18px}
-    .section-title{font-size:16px;margin:16px 0 6px;font-weight:700}
-    ul{margin:6px 0 0 0;padding-left:18px}
-    footer{max-width:1100px;margin:30px auto 16px;padding:0 18px;color:var(--muted);font-size:13px}
-  </style>
+  <meta name="description" content="Chouette nocturne murale imprimée en 3D, LED intégrée. Finition soignée, fabrication en France. Options retrait sur place ou envoi Colissimo." />
+  <link rel="preload" as="image" href="/images/chouette-cover.webp" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <header>
+  <header class="site">
     <div class="container nav">
-      <div class="brand"><div class="logo" aria-hidden="true"></div><h1>Fab3DCréation</h1></div>
-      <div>
-        <a class="btn" href="index.html">Retour au catalogue</a>
-        <button class="btn btn-accent" onclick="document.getElementById('contact').showModal()">Contact</button>
-      </div>
+      <a class="brand" href="/"><span class="logo" aria-hidden="true"></span><h1>Fab3DCréation</h1></a>
+      <nav class="nav-cta">
+        <a class="btn" href="/#catalogue">Retour au catalogue</a>
+        <a class="btn btn-accent" href="mailto:fab3dcreation@gmail.com?subject=Contact%20Fab3DCreation">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <div class="breadcrumbs">
-    <a href="index.html">Accueil</a> › <a href="index.html#catalogue">Catalogue</a> › Chouette nocturne
-  </div>
+  <main class="container">
+    <nav class="breadcrumbs small" aria-label="Fil d’Ariane" style="margin:8px 0 16px">
+      <a href="/">Accueil</a> › <a href="/#catalogue">Catalogue</a> › <strong>Chouette nocturne</strong>
+    </nav>
 
-  <main class="wrap">
-    <!-- Colonne médias -->
-    <section class="panel media">
-      <img id="hero" class="hero" src="images/chouette-cover.webp" alt="Chouette nocturne — vue principale">
-      <div class="thumbs" id="thumbs">
-        <img class="active" src="images/chouette-cover.webp" alt="Aperçu 1" data-full="images/chouette-cover.webp">
-        <img src="images/chouette-1.webp" alt="Aperçu 2" data-full="images/chouette-1.webp">
-        <img src="images/chouette-2.webp" alt="Aperçu 3" data-full="images/chouette-2.webp">
-        <img src="images/chouette-3.webp" alt="Aperçu 4" data-full="images/chouette-3.webp">
-        <img src="images/chouette-4.webp" alt="Aperçu 5" data-full="images/chouette-4.webp">
-        <img src="images/chouette-5.webp" alt="Aperçu 6" data-full="images/chouette-5.webp">
-      </div>
-    </section>
+    <section class="product">
+      <!-- Colonne média -->
+      <div class="panel media">
+        <!-- Image principale -->
+        <img id="hero" class="hero" src="/images/chouette-cover.webp" alt="Chouette nocturne — vue principale" />
 
-    <!-- Colonne contenu -->
-    <section class="panel content">
-      <h2>Décoration murale — Chouette nocturne</h2>
-      <p>Illuminez votre intérieur avec cette élégante chouette nocturne murale. Imprimée en 3D avec des matériaux de qualité, elle diffuse une lumière douce et chaleureuse grâce à son système LED intégré. Idéale pour un salon, une chambre ou un bureau, elle apporte une touche moderne et poétique à votre décoration.</p>
-
-      <div class="badges">
-        <span class="badge">Fabriqué en France 🇫🇷</span>
-        <span class="badge">LED basse conso</span>
-        <span class="badge">Impression 3D</span>
+        <!-- Miniatures -->
+        <div class="thumbs" id="thumbs">
+          <img class="active" src="/images/chouette-cover.webp" alt="Aperçu 1" data-full="/images/chouette-cover.webp">
+          <img src="/images/chouette-1.webp" alt="Aperçu 2" data-full="/images/chouette-1.webp">
+          <img src="/images/chouette-2.webp" alt="Aperçu 3" data-full="/images/chouette-2.webp">
+          <img src="/images/chouette-3.webp" alt="Aperçu 4" data-full="/images/chouette-3.webp">
+          <img src="/images/chouette-4.webp" alt="Aperçu 5" data-full="/images/chouette-4.webp">
+          <img src="/images/chouette-5.webp" alt="Aperçu 6" data-full="/images/chouette-5.webp">
+        </div>
       </div>
 
-      <div class="price">à partir de 29,90 €</div>
+      <!-- Colonne contenu -->
+      <div class="panel content">
+        <h2 class="title">Décoration murale — Chouette nocturne</h2>
+        <p class="sub">
+          Illuminez votre intérieur avec cette élégante chouette nocturne murale. Imprimée en 3D avec des matériaux de qualité, elle diffuse une lumière douce et chaleureuse grâce à son système LED intégré. Idéale pour un salon, une chambre ou un bureau, elle apporte une touche moderne et poétique à votre décoration.
+        </p>
 
-      <div class="cta-row">
-        <!-- Mets ici ton vrai lien d’achat s’il existe -->
-        <a class="btn btn-accent" href="https://buy.stripe.com/test_xxxxxxx" target="_blank" rel="noopener">Acheter (expédition)</a>
-        <button class="btn" onclick="document.getElementById('pickup').showModal()">Remise en main propre ?</button>
+        <div class="badges">
+          <span class="badge">Fabriqué en France 🇫🇷</span>
+          <span class="badge">LED basse conso</span>
+          <span class="badge">Impression 3D</span>
+        </div>
+
+        <div class="price-row" style="margin:10px 0 14px">
+          <div class="price" aria-label="Prix">30,00 €</div>
+        </div>
+
+        <!-- Un seul bouton Acheter qui ouvre la modale -->
+        <div class="cta" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <button
+            id="buyBtn"
+            class="btn btn-accent"
+            data-pickup="mailto:fab3dcreation@gmail.com?subject=Commande%20Chouette%20nocturne%20-%20Retrait%20sur%20place&body=Bonjour%2C%0AJe%20souhaite%20retirer%20sur%20place%20une%20Chouette%20nocturne.%0A%0ANom%3A%0APr%C3%A9nom%3A%0AT%C3%A9l%C3%A9phone%3A%0AQuantit%C3%A9%3A%0A"
+            data-ship="mailto:fab3dcreation@gmail.com?subject=Commande%20Chouette%20nocturne%20-%20Envoi%20Colissimo&body=Bonjour%2C%0AJe%20souhaite%20une%20Chouette%20nocturne%20avec%20envoi%20Colissimo.%0A%0AAdresse%20postale%3A%0AQuantit%C3%A9%3A%0A"
+            >
+            Acheter
+          </button>
+          <a class="btn" href="mailto:fab3dcreation@gmail.com?subject=Question%20Chouette%20nocturne">Une question ?</a>
+        </div>
+
+        <h3 style="margin:18px 0 8px">Caractéristiques</h3>
+        <ul>
+          <li>Fabrication artisanale en impression 3D</li>
+          <li>Finition soignée et durable</li>
+          <li>Éclairage LED basse consommation (à piles ou secteur selon version)</li>
+          <li>Facile à installer au mur</li>
+        </ul>
+
+        <h3 style="margin:18px 0 8px">Dimensions & options</h3>
+        <ul>
+          <li>20 cm (H) × 12,3 cm (L) × 9 cm (P)</li>
+          <li>Poids / Temps : 168 g · ~6 h 30</li>
+          <li>Couleurs disponibles : PLA Bambu Lab Matte (noir, blanc ou couleur au choix)</li>
+          <li>Expédition : 1–2 jours ouvrés depuis la France</li>
+        </ul>
+
+        <h3 style="margin:18px 0 8px">Livraison & retours</h3>
+        <p class="small">
+          Expédition via Colissimo ou Lettre Suivie (2–4 jours ouvrés en France). Retours possibles sous 14 jours après réception (hors erreur de notre part ou produit défectueux).
+        </p>
       </div>
-
-      <div class="section-title">Caractéristiques</div>
-      <ul>
-        <li>Fabrication artisanale en impression 3D</li>
-        <li>Finition soignée et durable</li>
-        <li>Éclairage LED basse consommation (à piles ou sur secteur selon version)</li>
-        <li>Facile à installer au mur</li>
-      </ul>
-
-      <div class="section-title">Dimensions & options</div>
-      <ul>
-        <li>20 cm (H) × 12,3 cm (L) × 9 cm (P)</li>
-        <li>Poids / Temps : 168 g · ~6 h 30</li>
-        <li>Couleurs : PLA Bambu Lab Matte (noir, blanc ou couleur au choix)</li>
-        <li>Expédition : 1–2 jours ouvrés depuis la France</li>
-      </ul>
-
-      <div class="section-title">Livraison & retours</div>
-      <p>Expédition via Colissimo ou Lettre Suivie (2–4 j ouvrés en France). Retours sous 14 jours (hors erreur de notre part ou produit défectueux).</p>
     </section>
   </main>
 
-  <footer>
-    © <span id="year"></span> Fab3DCréation — Tous droits réservés ·
-    <a href="mailto:fab3dcreation@gmail.com">fab3dcreation@gmail.com</a>
+  <!-- Modale Acheter (mêmes options que l’accueil) -->
+  <dialog id="buyModal">
+    <div class="dialog-body">
+      <h3 style="margin:0 0 6px">Acheter — options</h3>
+      <p class="small" style="margin:8px 0 14px">Choisissez votre mode de récupération :</p>
+      <div class="payrow">
+        <a id="pickupLink" class="paybtn" href="#" target="_blank" rel="noreferrer">Retrait sur place</a>
+        <a id="shipLink" class="paybtn primary" href="#" target="_blank" rel="noreferrer">Envoi (Colissimo)</a>
+      </div>
+      <p class="small" style="margin-top:10px">⚠️ Paiement sécurisé : lien envoyé par email après confirmation.</p>
+    </div>
+    <div class="dialog-actions">
+      <button class="btn" data-close>Fermer</button>
+    </div>
+  </dialog>
+
+  <footer class="container small" style="margin-top:26px">
+    © <span id="year"></span> Fab3DCréation — Tous droits réservés · <a href="mailto:fab3dcreation@gmail.com">fab3dcreation@gmail.com</a>
   </footer>
 
-  <!-- Modale contact -->
-  <dialog id="contact">
-    <div style="padding:18px">
-      <h3 style="margin:0 0 8px">Contact</h3>
-      <p>Email : <a href="mailto:fab3dcreation@gmail.com">fab3dcreation@gmail.com</a></p>
-    </div>
-    <div style="padding:14px;text-align:right">
-      <button class="btn" onclick="this.closest('dialog').close()">Fermer</button>
-    </div>
-  </dialog>
-
-  <!-- Modale Remise en main propre -->
-  <dialog id="pickup">
-    <div style="padding:18px;max-width:520px">
-      <h3 style="margin:0 0 8px">Remise en main propre</h3>
-      <p class="muted" style="color:#8a90a2">Indiquez votre ville/CRÉNEAU souhaité et nous vous confirmons par email.</p>
-      <form onsubmit="pickupSubmit(event)">
-        <div style="display:grid;gap:10px;margin-top:8px">
-          <input required style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:#e8ecf1" placeholder="Votre nom">
-          <input required type="email" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:#e8ecf1" placeholder="Email">
-          <input required style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:#e8ecf1" placeholder="Ville / secteur">
-          <textarea rows="4" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0f1116;color:#e8ecf1" placeholder="Votre message (créneau, détails…)"></textarea>
-        </div>
-        <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px">
-          <button type="button" class="btn" onclick="this.closest('dialog').close()">Annuler</button>
-          <button class="btn btn-accent" type="submit">Envoyer</button>
-        </div>
-      </form>
-    </div>
-  </dialog>
-
-  <script>
-    // année footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // galerie
-    const hero = document.getElementById('hero');
-    document.getElementById('thumbs').addEventListener('click', (e)=>{
-      const t = e.target;
-      if(t.tagName !== 'IMG') return;
-      hero.src = t.getAttribute('data-full');
-      document.querySelectorAll('.thumbs img').forEach(i=>i.classList.remove('active'));
-      t.classList.add('active');
-    });
-
-    // faux envoi main propre
-    function pickupSubmit(e){
-      e.preventDefault();
-      alert("Merci ! Nous vous répondons très vite à propos de la remise en main propre.");
-      document.getElementById('pickup').close();
-    }
-  </script>
+  <script src="/script.js" defer></script>
 </body>
 </html>
