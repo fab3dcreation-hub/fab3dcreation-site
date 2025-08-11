@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Décoration murale — Chouette nocturne</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <h1>Décoration murale — Chouette nocturne</h1>
+        <img src="chouette-cover.webp" alt="Chouette nocturne">
+        <p>Illuminez votre intérieur avec cette élégante chouette nocturne murale. Imprimée en 3D avec des matériaux de qualité...</p>
+        <p><strong>Prix :</strong> 30,00 €</p>
+        <button id="btn-devis" data-product="Décoration murale — Chouette nocturne">Demander un devis</button>
+    </main>
+
+    <form name="devis" method="POST" data-netlify="true" id="devis-form" style="display:none;">
+        <input type="hidden" name="form-name" value="devis">
+        <input type="hidden" name="product" id="product-name">
+        <label>Nom*<input type="text" name="name" required></label>
+        <label>Email*<input type="email" name="email" required></label>
+        <label>Téléphone<input type="text" name="phone"></label>
+        <label>Détails du projet*<textarea name="details" required></textarea></label>
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

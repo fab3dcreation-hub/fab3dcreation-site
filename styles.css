@@ -1,0 +1,6 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+main img { max-width: 300px; display: block; margin-bottom: 20px; }
+form { border: 1px solid #ccc; padding: 20px; margin-top: 20px; }
+label { display: block; margin: 10px 0; }
+button { padding: 10px 20px; background: #008cba; color: white; border: none; cursor: pointer; }
+button:hover { background: #005f5f; }
