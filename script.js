@@ -1,6 +1,6 @@
 
 const CONTACT_EMAIL = "fab3dcreation@gmail.com";
-const SHIPPING = 4.90;
+const SHIPPING = 6.90;
 const fmt = n => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n);
 
 // Theme toggle
