@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fab3DCréation — Boutique</title>
+  <meta name="description" content="Créations 3D imprimées en France : décorations, figurines et objets personnalisés." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" as="image" href="images/banniere.webp" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="logo" aria-hidden="true"></span>
+        <h1>Fab3DCréation</h1>
+      </a>
+      <div class="nav-cta">
+        <a class="btn" href="#catalogue">Catalogue</a>
+        <a class="btn btn-accent" href="mailto:fab3dcreation@gmail.com">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Bannière -->
+  <section class="banner">
+    <picture>
+      <source srcset="images/banniere.webp" type="image/webp" />
+      <img class="banner-img" src="images/banniere.webp" alt="Fab3DCréation — bannière" />
+    </picture>
+  </section>
+
+  <main>
+    <section class="container section">
+      <div class="hero-panel">
+        <h2>Créations 3D originales, prêtes à commander</h2>
+        <p class="sub">Imprimées en France — envoi rapide ou retrait sur place.</p>
+        <div class="badges">
+          <span class="badge">Imprimé en France 🇫🇷</span>
+          <span class="badge">Paiement sécurisé</span>
+          <span class="badge">Sur-mesure possible</span>
+        </div>
+        <a class="btn btn-accent" href="#catalogue">Voir le catalogue</a>
+      </div>
+    </section>
+
+    <section id="catalogue" class="container section">
+      <h3>Produits standards</h3>
+      <div class="grid">
+        <!-- Chouette -->
+        <article class="card">
+          <a href="produit-chouette.html" class="block">
+            <div class="thumb" style="background-image:url('images/chouette-cover.webp')"></div>
+          </a>
+          <div class="content">
+            <h4 class="title"><a href="produit-chouette.html">Décoration murale — Chouette nocturne</a></h4>
+            <p class="desc">Élégante chouette murale 3D, LED intégrée, finitions soignées.</p>
+            <div class="meta">
+              <div class="price">30,00 €</div>
+              <a class="btn btn-accent" href="produit-chouette.html">Voir le produit</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tirelire Cochon -->
+        <article class="card">
+          <a href="produit-tirelire-cochon.html" class="block">
+            <div class="thumb" style="background-image:url('images/cochon_Bank_cover.webp')"></div>
+          </a>
+          <div class="content">
+            <h4 class="title"><a href="produit-tirelire-cochon.html">Tirelire Cochon</a></h4>
+            <p class="desc">Tirelire déjantée imprimée en 3D PLA. Cadeau fun & déco.</p>
+            <div class="meta">
+              <div class="price">20,00 €</div>
+              <a class="btn btn-accent" href="produit-tirelire-cochon.html">Voir le produit</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Produits personnalisés -->
+    <section class="container section">
+      <h3>Produits personnalisés</h3>
+      <div class="grid">
+        <article class="card">
+          <div class="thumb" style="background-image:url('images/cadre.webp')"></div>
+          <div class="content">
+            <h4 class="title">Lithophanie photo</h4>
+            <p class="desc">Votre photo transformée en relief lumineux, options cadre et LED.</p>
+            <div class="meta">
+              <div class="price">Sur devis</div>
+              <button class="btn" data-open="devis" data-product="Lithophanie photo">Demander un devis</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb" style="background-image:url('images/lego.webp')"></div>
+          <div class="content">
+            <h4 class="title">Figurine personnalisée</h4>
+            <p class="desc">Une figurine sur-mesure (couleur, pose, accessoires). Idée cadeau unique.</p>
+            <div class="meta">
+              <div class="price">Sur devis</div>
+              <button class="btn" data-open="devis" data-product="Figurine personnalisée">Demander un devis</button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="small" style="margin-top:8px">Pas de fichiers STL, uniquement la vente de produits/prestations.</p>
+    </section>
+  </main>
+
+  <!-- Modale Devis (Netlify Forms) -->
+  <dialog id="devis">
+    <form class="dialog-body" name="devis" method="POST" data-netlify="true" enctype="multipart/form-data">
+      <input type="hidden" name="form-name" value="devis">
+      <input type="hidden" name="product" id="devis-product">
+      <h3 style="margin:0 0 6px">Demande de devis</h3>
+
+      <div class="form-grid">
+        <label>Produit
+          <input id="devis-product-readonly" type="text" readonly>
+        </label>
+        <label>Nom*
+          <input name="name" required>
+        </label>
+        <label>Email*
+          <input name="email" type="email" required>
+        </label>
+        <label>Téléphone
+          <input name="phone" type="tel">
+        </label>
+        <label>Type de livraison
+          <select name="delivery">
+            <option value="pickup">Retrait sur place</option>
+            <option value="shipping">Envoi (Colissimo)</option>
+          </select>
+        </label>
+        <label class="span-2">Détails du projet*
+          <textarea name="message" rows="4" required placeholder="Dimensions, couleurs, quantité, idées…"></textarea>
+        </label>
+        <label class="span-2">Photos (jusqu’à 3)
+          <input type="file" name="photos" accept="image/*" multiple>
+        </label>
+      </div>
+    </form>
+    <div class="dialog-actions">
+      <button class="btn" data-close>Fermer</button>
+      <button class="btn btn-accent" onclick="document.querySelector('#devis form').submit()">Envoyer</button>
+    </div>
+  </dialog>
+
+  <footer class="container small">
+    © <span id="year"></span> Fab3DCréation — Tous droits réservés · <a href="mailto:fab3dcreation@gmail.com">fab3dcreation@gmail.com</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
