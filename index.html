@@ -1,174 +1,228 @@
 <!doctype html>
-<html lang="fr" data-theme="dark">
+<html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fab3DCréation — Boutique</title>
-  <meta name="description" content="Créations 3D originales en France : produits standards et personnalisés. Paiement sécurisé, envoi rapide ou retrait sur place." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fab3DCréation — Boutique 3D</title>
+  <meta name="description" content="Créations 3D originales imprimées en France. Figurines, déco, lampes, lithophanies. Paiement sécurisé, retrait ou envoi. Sur-mesure possible." />
   <link rel="preload" as="image" href="images/banniere.webp" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="images/logo.png" />
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#">
-        <img src="images/logo.svg" alt="Fab3DCréation" class="brand-logo" />
-        <span class="brand-name">Fab3DCréation</span>
-      </a>
 
-      <nav class="nav-actions">
-        <a class="btn btn-accent" href="#catalogue">Catalogue</a>
-        <a class="btn" href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <a href="#" class="brand">
+    <img src="images/logo.png" alt="Fab3DCréation" class="logo" />
+    <span>Fab3DCréation</span>
+  </a>
+  <nav>
+    <a href="#catalogue" class="btn pill">Catalogue</a>
+    <a href="#contact" class="btn ghost">Contact</a>
+  </nav>
+</header>
 
-  <!-- Hero bannière -->
-  <section class="mast">
-    <picture>
-      <img class="mast-img" src="images/banniere.webp" alt="Bannière Fab3DCréation" />
-    </picture>
-  </section>
+<!-- HÉRO -->
+<section class="hero">
+  <picture>
+    <source srcset="images/banniere.webp" type="image/webp" />
+    <img src="images/banniere.jpg" alt="Fab3DCréation — bannière" class="mast" />
+  </picture>
 
-  <!-- Intro -->
-  <section class="intro">
-    <div class="container">
-      <h2>Créations 3D originales, prêtes à commander</h2>
-      <p>Imprimées en France — envoi rapide ou retrait sur place.<br />
-      Paiement sécurisé • Sur-mesure possible</p>
-      <a class="btn btn-accent" href="#catalogue">Voir le catalogue</a>
-    </div>
-  </section>
+  <div class="intro container">
+    <h1>Créations 3D originales, prêtes à commander</h1>
+    <p class="muted">
+      Imprimées en France — envoi rapide ou retrait sur place.<br />
+      Paiement sécurisé · Sur-mesure possible
+    </p>
+    <a href="#catalogue" class="btn accent">Voir le catalogue</a>
+  </div>
+</section>
 
-  <!-- Catalogue -->
-  <section id="catalogue" class="catalogue container">
-    <!-- Produits standards -->
-    <h3>Produits standards</h3>
-    <div class="grid">
-      <!-- Chouette Nocturne -->
-      <article class="card">
-        <a href="produit-chouette.html" class="thumb" style="background-image:url('images/chouette-cover.webp')" aria-label="Décoration murale — Chouette nocturne"></a>
-        <div class="content">
-          <h4 class="title">Décoration murale — Chouette nocturne</h4>
-          <p class="desc">Élégante chouette murale avec LED intégrée. Fabrication soignée, prête à illuminer votre intérieur.</p>
-          <div class="meta">
-            <div class="price">30,00 €</div>
-            <button class="btn btn-accent" data-buy data-title="Chouette nocturne" data-price="30">Acheter</button>
-            <a class="btn" href="produit-chouette.html">Détails</a>
+<!-- CATALOGUE -->
+<section id="catalogue" class="container section">
+  <h2 class="hsec">Produits standards</h2>
+
+  <div class="grid cards">
+    <!-- Chouette -->
+    <article class="card">
+      <a class="thumb" href="produit-chouette.html" style="background-image:url('images/chouette-cover.webp')" aria-label="Voir la fiche produit Chouette nocturne"></a>
+      <div class="content">
+        <h3 class="title">Décoration murale — Chouette nocturne</h3>
+        <p class="desc">Lampe murale 3D avec LED. Effet lumineux et poétique.</p>
+        <div class="meta">
+          <div class="price">30,00&nbsp;€</div>
+          <div class="cta-row">
+            <button class="btn accent" data-buy data-title="Chouette nocturne" data-price="30">Acheter</button>
+            <a class="btn ghost" href="produit-chouette.html">Détails</a>
           </div>
         </div>
-      </article>
-
-      <!-- Tirelire Cochon -->
-      <article class="card">
-        <a href="produit-tirelire-cochon.html" class="thumb" style="background-image:url('images/cochon_Bank_cover.webp')" aria-label="Tirelire Cochon"></a>
-        <div class="content">
-          <h4 class="title">Tirelire Cochon</h4>
-          <p class="desc">La tirelire la plus déjantée ! Design 3D original, solide et fun. Idéale en cadeau.</p>
-          <div class="meta">
-            <div class="price">20,00 €</div>
-            <button class="btn btn-accent" data-buy data-title="Tirelire Cochon" data-price="20">Acheter</button>
-            <a class="btn" href="produit-tirelire-cochon.html">Détails</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Mecha Lampe -->
-      <article class="card">
-        <a href="produit-mecha-lampe.html" class="thumb" style="background-image:url('images/mecha_cover.webp')" aria-label="Lampe de table — Robot Mecha"></a>
-        <div class="content">
-          <h4 class="title">Lampe de table — Robot Mecha</h4>
-          <p class="desc">Style futuriste, design robotique. Parfaite pour bureau, chambre ou coin lecture.</p>
-          <div class="meta">
-            <div class="price">49,00 €</div>
-            <button class="btn btn-accent" data-buy data-title="Lampe Robot Mecha" data-price="49">Acheter</button>
-            <a class="btn" href="produit-mecha-lampe.html">Détails</a>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <!-- Produits personnalisés -->
-    <h3 class="mt">Produits personnalisés</h3>
-    <div class="grid">
-      <article class="card">
-        <a href="#contact" class="thumb" style="background-image:url('images/cadre.webp')" aria-label="Lithophanie photo (personnalisé)"></a>
-        <div class="content">
-          <h4 class="title">Lithophanie photo</h4>
-          <p class="desc">Transformez votre photo en relief lumineux (personnalisé). Parfait cadeau unique.</p>
-          <div class="meta">
-            <a class="btn btn-accent" href="#contact">Demander un devis</a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Section Contact -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h3>Contact</h3>
-      <p>Une question ? Un projet personnalisé ? Écrivez-nous :</p>
-
-      <!-- Formulaire Netlify -->
-      <form name="contact" method="POST" data-netlify="true" class="contact-form">
-        <input type="hidden" name="form-name" value="contact" />
-        <div class="fields">
-          <label>
-            <span>Nom *</span>
-            <input required type="text" name="name" />
-          </label>
-          <label>
-            <span>Email *</span>
-            <input required type="email" name="email" />
-          </label>
-        </div>
-        <label>
-          <span>Message *</span>
-          <textarea required name="message" rows="5"></textarea>
-        </label>
-        <div class="actions">
-          <button class="btn btn-accent" type="submit">Envoyer</button>
-          <a class="btn" href="mailto:fab3dcreation@gmail.com">Ou par email</a>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Fab3DCréation — Made in France</p>
-    </div>
-  </footer>
-
-  <!-- Modale Achat -->
-  <dialog id="buyDlg" class="dialog">
-    <form class="dialog-body" method="dialog">
-      <h4 id="buyTitle">Achat</h4>
-      <div class="dialog-row">
-        <div id="buyBase">Produit : —</div>
       </div>
+    </article>
 
-      <fieldset class="dialog-fieldset">
-        <legend>Mode de réception</legend>
-        <label class="radio"><input type="radio" name="delivery" value="pickup" checked /> Retrait sur place</label>
-        <label class="radio"><input type="radio" name="delivery" value="shipping" /> Envoi (Colissimo) 6,90 €</label>
-      </fieldset>
-
-      <div class="dialog-row total">
-        <strong>Total : <span id="buyTotal">—</span></strong>
+    <!-- Tirelire Cochon -->
+    <article class="card">
+      <a class="thumb" href="produit-tirelire-cochon.html" style="background-image:url('images/cochon_Bank_cover.webp')" aria-label="Voir la fiche produit Tirelire Cochon"></a>
+      <div class="content">
+        <h3 class="title">Tirelire Cochon</h3>
+        <p class="desc">Tirelire 3D décalée et fun, idée cadeau originale.</p>
+        <div class="meta">
+          <div class="price">20,00&nbsp;€</div>
+          <div class="cta-row">
+            <button class="btn accent" data-buy data-title="Tirelire Cochon" data-price="20">Acheter</button>
+            <a class="btn ghost" href="produit-tirelire-cochon.html">Détails</a>
+          </div>
+        </div>
       </div>
-      <p class="muted">🔒 Paiement sécurisé : lien envoyé par email après confirmation.</p>
+    </article>
 
-      <div class="dialog-actions">
-        <button class="btn" value="cancel">Fermer</button>
-        <button class="btn btn-accent" id="confirmBuy">Confirmer</button>
+    <!-- Mecha Lampe -->
+    <article class="card">
+      <a class="thumb" href="produit-mecha-lampe.html" style="background-image:url('images/mecha_lamp-cover.webp')" aria-label="Voir la fiche produit Mecha Lampe"></a>
+      <div class="content">
+        <h3 class="title">Lampe de table — Robot Mecha</h3>
+        <p class="desc">Design futuriste, tête-lampe E27 LED (non fournie).</p>
+        <div class="meta">
+          <div class="price">49,00&nbsp;€</div>
+          <div class="cta-row">
+            <button class="btn accent" data-buy data-title="Lampe Robot Mecha" data-price="49">Acheter</button>
+            <a class="btn ghost" href="produit-mecha-lampe.html">Détails</a>
+          </div>
+        </div>
       </div>
-    </form>
-  </dialog>
+    </article>
+  </div>
 
-  <script src="script.js"></script>
+  <h2 class="hsec">Produits personnalisés</h2>
+  <div class="grid cards">
+    <article class="card">
+      <a class="thumb" href="#" style="background-image:url('images/cadre.webp')" data-open="devis" data-product="Lithophanie photo"></a>
+      <div class="content">
+        <h3 class="title">Lithophanie photo</h3>
+        <p class="desc">Transformez votre photo en relief lumineux (personnalisé).</p>
+        <div class="meta">
+          <div></div>
+          <div class="cta-row">
+            <button class="btn" data-open="devis" data-product="Lithophanie photo">Demander un devis</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="container section">
+  <h2 class="hsec">Contact</h2>
+  <p class="muted">Une question ? Un projet personnalisé ? Écrivez-nous :</p>
+
+  <!-- Netlify form + mailto fallback -->
+  <form name="contact" method="POST" data-netlify="true" class="contact-form">
+    <input type="hidden" name="form-name" value="contact" />
+    <div class="row">
+      <div class="col">
+        <label>Nom *</label>
+        <input name="name" required />
+      </div>
+      <div class="col">
+        <label>Email *</label>
+        <input type="email" name="email" required />
+      </div>
+    </div>
+    <label>Message *</label>
+    <textarea name="message" rows="5" required></textarea>
+
+    <div class="row gap">
+      <button class="btn accent" type="submit">Envoyer</button>
+      <a class="btn ghost" href="mailto:fab3dcreation@gmail.com?subject=Contact%20site">Ou par email</a>
+    </div>
+  </form>
+</section>
+
+<footer class="footer">
+  <div class="container small muted">
+    © <span id="year"></span> Fab3DCréation — Made in France
+  </div>
+</footer>
+
+<!-- DIALOG ACHAT (global) -->
+<dialog id="buyDlg" class="dialog">
+  <form method="dialog" class="box">
+    <h3 id="buyTitle">Achat</h3>
+    <p class="muted">Produit : <strong id="buyBase">30,00 €</strong></p>
+
+    <fieldset class="fieldset">
+      <legend>Mode de réception</legend>
+      <label class="radio">
+        <input type="radio" name="delivery" value="pickup" checked />
+        Retrait sur place
+      </label>
+      <label class="radio">
+        <input type="radio" name="delivery" value="shipping" />
+        Envoi (Colissimo) <span id="shipCost">6,90 €</span>
+      </label>
+    </fieldset>
+
+    <div class="total">Total : <strong id="buyTotal">30,00 €</strong></div>
+    <p class="muted small">🔒 Paiement sécurisé : lien envoyé par email après confirmation.</p>
+
+    <div class="actions">
+      <button class="btn ghost" value="cancel">Fermer</button>
+      <button id="confirmBuy" class="btn accent">Confirmer</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- DIALOG DEVIS (global) -->
+<dialog id="devisDlg" class="dialog">
+  <form method="POST" data-netlify="true" name="devis" class="box" id="devisForm">
+    <input type="hidden" name="form-name" value="devis" />
+    <h3>Demande de devis</h3>
+
+    <div class="row">
+      <div class="col">
+        <label>Nom *</label>
+        <input name="name" required />
+      </div>
+      <div class="col">
+        <label>Email *</label>
+        <input type="email" name="email" required />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label>Téléphone (facultatif)</label>
+        <input name="phone" />
+      </div>
+      <div class="col">
+        <label>Type de livraison</label>
+        <select name="delivery">
+          <option>Envoi (Colissimo)</option>
+          <option>Retrait sur place</option>
+        </select>
+      </div>
+    </div>
+
+    <label>Produit</label>
+    <input name="product" id="pname" placeholder="Produit personnalisé" />
+
+    <label>Détails du projet *</label>
+    <textarea name="message" rows="5" required placeholder="Décrivez vos besoins (dimensions, couleur, quantité, date...)"></textarea>
+
+    <label>Photos (jusqu’à 3) — visage/référence/illustration</label>
+    <input id="files" name="files" type="file" accept="image/*" multiple />
+
+    <div id="previews" class="previews"></div>
+
+    <div class="actions">
+      <button class="btn ghost" type="button" data-close>Annuler</button>
+      <button class="btn accent" type="submit" id="sendQuote">Envoyer</button>
+      <a class="btn link" href="mailto:fab3dcreation@gmail.com?subject=Devis%20Produit%20personnalis%C3%A9">Ou par email</a>
+    </div>
+  </form>
+</dialog>
+
+<script src="script.js"></script>
 </body>
 </html>
