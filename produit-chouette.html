@@ -1,49 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Décoration murale — Chouette nocturne | Fab3DCréation</title>
-  <meta name="description" content="Chouette nocturne murale imprimée en 3D avec LED intégrée. Finitions soignées, expédition rapide depuis la France." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Décoration murale — Chouette nocturne</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html"><span class="logo"></span><h1>Fab3DCréation</h1></a>
-      <div class="nav-cta">
+      <a class="brand" href="index.html#catalogue">
+        <img src="images/logo.svg" alt="Fab3DCréation" class="brand-logo" />
+        <span class="brand-name">Fab3DCréation</span>
+      </a>
+      <nav class="nav-actions">
         <a class="btn" href="index.html#catalogue">Retour au catalogue</a>
-        <a class="btn btn-accent" href="mailto:fab3dcreation@gmail.com">Contact</a>
-      </div>
+        <a class="btn btn-accent" href="index.html#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <main class="container product">
-    <section class="panel media">
-      <img id="hero" class="mast-img" src="images/chouette-cover.webp" alt="Chouette nocturne — vue principale" />
-      <div id="thumbs" class="thumbs">
-        <img class="active" src="images/chouette-cover.webp" alt="Aperçu cover" data-full="images/chouette-cover.webp" />
-        <img src="images/chouette-1.webp" alt="Aperçu 1" data-full="images/chouette-1.webp" />
-        <img src="images/chouette-2.webp" alt="Aperçu 2" data-full="images/chouette-2.webp" />
-        <img src="images/chouette-3.webp" alt="Aperçu 3" data-full="images/chouette-3.webp" />
-        <img src="images/chouette-4.webp" alt="Aperçu 4" data-full="images/chouette-4.webp" />
-        <img src="images/chouette-5.webp" alt="Aperçu 5" data-full="images/chouette-5.webp" />
+  <main class="product container">
+    <div class="panel-media">
+      <img id="hero" class="hero" src="images/chouette-cover.webp" alt="Chouette nocturne — vue principale" />
+      <div class="thumbs">
+        <img class="active" src="images/chouette-cover.webp" data-full="images/chouette-cover.webp" alt="Aperçu 1" />
+        <img src="images/chouette-1.webp" data-full="images/chouette-1.webp" alt="Aperçu 2" />
+        <img src="images/chouette-2.webp" data-full="images/chouette-2.webp" alt="Aperçu 3" />
+        <img src="images/chouette-3.webp" data-full="images/chouette-3.webp" alt="Aperçu 4" />
+        <img src="images/chouette-4.webp" data-full="images/chouette-4.webp" alt="Aperçu 5" />
+        <img src="images/chouette-5.webp" data-full="images/chouette-5.webp" alt="Aperçu 6" />
       </div>
-    </section>
+    </div>
 
-    <section class="panel copy">
-      <h2>Décoration murale — Chouette nocturne</h2>
-      <p class="sub">Illuminez votre intérieur avec cette élégante chouette nocturne murale. Imprimée en 3D avec des matériaux de qualité, elle diffuse une lumière douce et chaleureuse grâce à son système LED intégré. Idéale pour un salon, une chambre ou un bureau, elle apporte une touche moderne et poétique à votre déco.</p>
-
+    <div class="panel-content">
+      <h1>Décoration murale — Chouette nocturne</h1>
       <div class="badges">
         <span class="badge">Fabriqué en France 🇫🇷</span>
         <span class="badge">LED basse conso</span>
         <span class="badge">Impression 3D</span>
       </div>
 
-      <div class="price-row">
-        <div class="price">30,00 €</div>
-        <button class="btn btn-accent" data-buy data-id="owl-01" data-title="Décoration murale — Chouette nocturne" data-price="30">Acheter</button>
+      <div class="price-xl">30,00 €</div>
+      <div class="cta">
+        <button class="btn btn-accent" data-buy data-title="Chouette nocturne" data-price="30">Acheter</button>
       </div>
 
       <h3>Caractéristiques</h3>
@@ -63,34 +63,30 @@
       </ul>
 
       <h3>Livraison & retours</h3>
-      <p>Expédition via Colissimo ou Lettre Suivie (2–4 j ouvrés en France). Retours sous 14 jours (hors erreur de notre part ou produit défectueux).</p>
-    </section>
+      <p>Expédition via Colissimo ou Lettre Suivie selon le format. Retour sous 14 jours (hors erreur de notre part ou produit défectueux).</p>
+    </div>
   </main>
 
-  <!-- Modale Achat  -->
-  <dialog id="buyDlg">
-    <div class="dialog-body">
-      <h3 id="buyTitle">Achat</h3>
-      <p id="buyBase" class="small">Produit : 30,00 €</p>
-
-      <fieldset class="radio-list">
+  <!-- Modale Achat -->
+  <dialog id="buyDlg" class="dialog">
+    <form class="dialog-body" method="dialog">
+      <h4 id="buyTitle">Achat</h4>
+      <div class="dialog-row">
+        <div id="buyBase">Produit : —</div>
+      </div>
+      <fieldset class="dialog-fieldset">
         <legend>Mode de réception</legend>
-        <label class="radio"><input type="radio" name="delivery" value="pickup" checked> Retrait sur place</label>
-        <label class="radio"><input type="radio" name="delivery" value="shipping"> Envoi (Colissimo) <span id="shipCost">6,90 €</span></label>
+        <label class="radio"><input type="radio" name="delivery" value="pickup" checked /> Retrait sur place</label>
+        <label class="radio"><input type="radio" name="delivery" value="shipping" /> Envoi (Colissimo) 6,90 €</label>
       </fieldset>
-
-      <p class="total">Total : <b id="buyTotal">30,00 €</b></p>
-      <p class="small">🔒 Paiement sécurisé : lien envoyé par email après confirmation.</p>
-    </div>
-    <div class="dialog-actions">
-      <button class="btn" data-close>Fermer</button>
-      <button class="btn btn-accent" id="confirmBuy">Confirmer</button>
-    </div>
+      <div class="dialog-row total"><strong>Total : <span id="buyTotal">—</span></strong></div>
+      <p class="muted">🔒 Paiement sécurisé : lien envoyé par email après confirmation.</p>
+      <div class="dialog-actions">
+        <button class="btn" value="cancel">Fermer</button>
+        <button class="btn btn-accent" id="confirmBuy">Confirmer</button>
+      </div>
+    </form>
   </dialog>
-
-  <footer class="container small">
-    © <span id="year"></span> Fab3DCréation — Tous droits réservés
-  </footer>
 
   <script src="script.js"></script>
 </body>
