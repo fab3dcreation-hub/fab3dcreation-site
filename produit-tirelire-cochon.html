@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tirelire Cochon | Fab3DCréation</title>
+  <meta name="description" content="Tirelire Cochon en impression 3D PLA, design drôle et unique. Expédition rapide depuis la France." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="logo"></span><h1>Fab3DCréation</h1></a>
+      <div class="nav-cta">
+        <a class="btn" href="index.html#catalogue">Retour au catalogue</a>
+        <a class="btn btn-accent" href="mailto:fab3dcreation@gmail.com">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container product">
+    <!-- Colonne médias -->
+    <section class="panel media">
+      <img id="hero" class="mast-img" src="images/cochon_Bank_cover.webp" alt="Tirelire Cochon — vue principale" />
+      <div id="thumbs" class="thumbs">
+        <img class="active" src="images/cochon_Bank_cover.webp" alt="Vue 1" data-full="images/cochon_Bank_cover.webp" />
+        <img src="images/cochon_Bank_1.webp" alt="Vue 2" data-full="images/cochon_Bank_1.webp" />
+        <img src="images/cochon_Bank_2.webp" alt="Vue 3" data-full="images/cochon_Bank_2.webp" />
+        <img src="images/cochon_Bank_3.webp" alt="Vue 4" data-full="images/cochon_Bank_3.webp" />
+        <img src="images/cochon_Bank_4.webp" alt="Vue 5" data-full="images/cochon_Bank_4.webp" />
+      </div>
+    </section>
+
+    <!-- Colonne contenu -->
+    <section class="panel copy">
+      <h2>Tirelire Cochon</h2>
+      <p class="sub">Tirelire Cochon, la tirelire la plus déjantée que vous n’ayez jamais vue ! Ajoutez une touche d’humour à vos économies avec cette tirelire cochon unique et décalée ! Imprimée en 3D avec du PLA de haute qualité, elle se distingue par son design original qui ne manquera pas de faire sourire. Idéale comme cadeau amusant ou objet déco, elle vous accompagnera pour stocker pièces et billets… tout en attirant les regards.</p>
+
+      <div class="badges">
+        <span class="badge">Fabriqué en France 🇫🇷</span>
+        <span class="badge">PLA premium</span>
+        <span class="badge">Impression 3D</span>
+      </div>
+
+      <div class="price-row">
+        <div class="price">20,00 €</div>
+        <button class="btn btn-accent" data-buy data-id="tirelire-cochon" data-title="Tirelire Cochon" data-price="20">Acheter</button>
+      </div>
+
+      <h3>Caractéristiques</h3>
+      <ul>
+        <li>Fabrication artisanale en impression 3D PLA</li>
+        <li>Design humoristique et unique</li>
+        <li>Ouverture facile pour récupérer vos économies</li>
+        <li>Finition soignée et durable</li>
+      </ul>
+
+      <h3>Dimensions & options</h3>
+      <ul>
+        <li>Taille : environ 15 cm (L) × 10 cm (H) × 10 cm (P)</li>
+        <li>Poids : ~200 g · Temps d’impression : ~8–10 h</li>
+        <li>Couleurs : au choix (rose, blanc, ou sur demande)</li>
+        <li>Expédition : 1–2 jours ouvrés depuis la France</li>
+      </ul>
+
+      <h3>Livraison & retours</h3>
+      <p>Expédition via Colissimo / Lettre Suivie. Retours sous 14 jours (hors erreur de notre part ou produit défectueux).</p>
+    </section>
+  </main>
+
+  <!-- Modale Achat -->
+  <dialog id="buyDlg">
+    <div class="dialog-body">
+      <h3 id="buyTitle">Achat</h3>
+      <p id="buyBase" class="small">Produit : 20,00 €</p>
+
+      <fieldset class="radio-list">
+        <legend>Mode de réception</legend>
+        <label class="radio"><input type="radio" name="delivery" value="pickup" checked> Retrait sur place</label>
+        <label class="radio"><input type="radio" name="delivery" value="shipping"> Envoi (Colissimo) <span id="shipCost">6,90 €</span></label>
+      </fieldset>
+
+      <p class="total">Total : <b id="buyTotal">20,00 €</b></p>
+      <p class="small">🔒 Paiement sécurisé : lien envoyé par email après confirmation.</p>
+    </div>
+    <div class="dialog-actions">
+      <button class="btn" data-close>Fermer</button>
+      <button class="btn btn-accent" id="confirmBuy">Confirmer</button>
+    </div>
+  </dialog>
+
+  <footer class="container small">
+    © <span id="year"></span> Fab3DCréation — Tous droits réservés
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
