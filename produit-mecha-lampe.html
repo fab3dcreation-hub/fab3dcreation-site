@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lampe de table — Robot Mecha</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html#catalogue">
+        <img src="images/logo.svg" alt="Fab3DCréation" class="brand-logo" />
+        <span class="brand-name">Fab3DCréation</span>
+      </a>
+      <nav class="nav-actions">
+        <a class="btn" href="index.html#catalogue">Retour au catalogue</a>
+        <a class="btn btn-accent" href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="product container">
+    <div class="panel-media">
+      <img id="hero" class="hero" src="images/mecha_cover.webp" alt="Lampe Robot Mecha — vue principale" />
+      <div class="thumbs">
+        <img class="active" src="images/mecha_cover.webp" data-full="images/mecha_cover.webp" alt="Aperçu 1" />
+        <img src="images/mecha_1.webp" data-full="images/mecha_1.webp" alt="Aperçu 2" />
+        <img src="images/mecha_2.webp" data-full="images/mecha_2.webp" alt="Aperçu 3" />
+        <img src="images/mecha_3.webp" data-full="images/mecha_3.webp" alt="Aperçu 4" />
+        <img src="images/mecha_4.webp" data-full="images/mecha_4.webp" alt="Aperçu 5" />
+        <img src="images/mecha_5.webp" data-full="images/mecha_5.webp" alt="Aperçu 6" />
+      </div>
+    </div>
+
+    <div class="panel-content">
+      <h1>Lampe de table — Robot Mecha</h1>
+      <div class="badges">
+        <span class="badge">Impression 3D PLA</span>
+        <span class="badge">Design robotique</span>
+        <span class="badge">Fabriqué en France</span>
+      </div>
+
+      <div class="price-xl">49,00 €</div>
+      <div class="cta">
+        <button class="btn btn-accent" data-buy data-title="Lampe Robot Mecha" data-price="49">Acheter</button>
+      </div>
+
+      <h3>Description</h3>
+      <p>Apportez un style futuriste à votre intérieur avec cette lampe de table Robot Mecha. Design audacieux et éclairage d’ambiance.</p>
+
+      <h3>Caractéristiques</h3>
+      <ul>
+        <li>Artisanale en impression 3D PLA</li>
+        <li>Design robotique détaillé, tête-lampe éclairante</li>
+        <li>Assemblage simple (pièces imprimées + montage électrique E27 LED)</li>
+        <li>Finition robuste et durable</li>
+        <li>Conçue et expédiée depuis la France</li>
+      </ul>
+
+      <h3>Dimensions & options</h3>
+      <ul>
+        <li>Hauteur : 23,5 cm — Temps d’impression estimé : ~2 j 11 h</li>
+        <li>Éclairage requis : douille E27 + ampoule LED + câble + prise (non fournis)</li>
+        <li>Couleurs : gris, noir, ou selon stock</li>
+        <li>Expédition : 1–2 jours ouvrés depuis la France</li>
+      </ul>
+    </div>
+  </main>
+
+  <dialog id="buyDlg" class="dialog">
+    <form class="dialog-body" method="dialog">
+      <h4 id="buyTitle">Achat</h4>
+      <div class="dialog-row"><div id="buyBase">Produit : —</div></div>
+      <fieldset class="dialog-fieldset">
+        <legend>Mode de réception</legend>
+        <label class="radio"><input type="radio" name="delivery" value="pickup" checked /> Retrait sur place</label>
+        <label class="radio"><input type="radio" name="delivery" value="shipping" /> Envoi (Colissimo) 6,90 €</label>
+      </fieldset>
+      <div class="dialog-row total"><strong>Total : <span id="buyTotal">—</span></strong></div>
+      <p class="muted">🔒 Paiement sécurisé : lien envoyé par email après confirmation.</p>
+      <div class="dialog-actions">
+        <button class="btn" value="cancel">Fermer</button>
+        <button class="btn btn-accent" id="confirmBuy">Confirmer</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
